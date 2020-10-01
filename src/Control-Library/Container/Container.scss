@@ -1,0 +1,70 @@
+@import "../-General/Styles/variables.scss";
+
+.md-container {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    box-sizing: border-box;
+    background-color: $general-base-background-color;
+    display: flex;    
+    flex-grow: 0;
+    margin: 10px;
+
+    &.bordered {
+        border: 1px solid $general-base-border-color;
+    }
+
+    &.rounded {
+        border-radius: 5px;
+    }
+
+    &.v-direction {
+        flex-direction: column;
+    }
+
+    &.h-direction {
+        flex-direction: row;
+    }
+
+    &.equality {
+        flex-grow: 1;
+    }
+
+    &.masuered {
+        flex-grow: 0;
+    }
+
+    &.height-as-content {
+        flex-grow: 0;
+        height: unset;
+    }
+
+    &.width-as-content {
+        flex-grow: 0;
+        width: unset;
+    }
+
+    &.v-alignment-center {
+        align-items: center;
+    }
+    &.v-alignment-start {
+        align-items: flex-start;
+    }
+    &.v-alignment-end {
+        align-items: flex-end;
+    }
+
+    &.h-alignment-center {
+        justify-content: center;
+    }
+    &.h-alignment-start {
+        justify-content: flex-start;
+    }
+    &.h-alignment-end {
+        justify-content: flex-end;
+    }
+
+
+
+
+
+}

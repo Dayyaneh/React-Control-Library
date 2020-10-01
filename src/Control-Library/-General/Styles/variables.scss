@@ -1,0 +1,24 @@
+$general-white: #fff;
+$general-base-color: #fbfbfb;
+$general-color-I: #768299;
+$general-color-II: #f26522;
+
+$general-base-background-color: $general-base-color;
+$general-base-border-color: darken($general-base-color, 5%);
+
+$general-background-color: lighten(desaturate($general-color-I, 10%), 60%);
+$general-border-color: $general-color-I;
+$general-text-color: $general-color-I;
+$general-icon-color: $general-color-I;
+$general-place-holder: lighten(desaturate($general-color-I, 10%), 30%);
+$general-disabled-color: lighten(desaturate($general-color-I, 10%), 30%);
+$general-hover-color: darken(saturate($general-color-I, 20%), 10%);
+
+$general-featured-background-color: lighten($general-color-II, 40%);
+$general-featured-border-color: $general-color-II;
+$general-featured-text-color: $general-color-II;
+$general-featured-icon-color: $general-color-II;
+$general-featured-place-holder: lighten(desaturate($general-color-II, 10%), 30%);
+$general-featured-disabled-color: lighten(desaturate($general-color-II, 10%), 30%);
+$general-featured-hover-color: lighten(saturate($general-color-II, 10%), 50%);
+/*----------------------------------------------------------------------------------------------*/

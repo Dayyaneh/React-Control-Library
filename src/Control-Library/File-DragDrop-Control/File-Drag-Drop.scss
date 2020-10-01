@@ -1,0 +1,84 @@
+@import "../-General/Styles/variables.scss";
+
+.md-file-drag-drop {
+    display: flex;
+    height: 100%;
+    min-height: 200px;
+    width: 100%;
+    background-color: $general-base-color;
+    transition: background-color 0.4s linear;
+    border: 2px dashed $general-border-color;
+    text-align: center;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+
+    .icon-container {
+        display: flex;
+        flex-direction: column;
+        transition: all 0.2s linear;
+        flex-grow: 1;
+
+        .icon-file-upload {
+            height: 100%;
+            max-height: 100px;
+            width: 100%;
+            max-width: 100px;
+
+            path {
+                fill: $general-icon-color;
+            }
+        }
+
+        .file-list {
+            display: flex;
+            width: calc(100% - 10px);
+            height: auto;
+            max-height: calc(100% - 10px);
+            flex-grow: 0;
+            overflow: hidden;
+            padding: 5px;
+    
+            .row {
+                width: unset;
+                height: unset;
+                overflow: hidden;
+                animation: adding-a-new-lline 0.3s linear;
+                animation-fill-mode: forwards;
+    
+                button {
+                    max-width: 18px;
+                }
+    
+                p {
+                    flex-grow: 1;
+                }
+                
+                @keyframes adding-a-new-lline {
+                    0%   {height: 0px}
+                    100%   {height: 20px; min-height: 20px;}
+                  }
+            }
+        }
+        .file-list:empty {
+            padding: 0;
+        }
+    }
+
+    &.dragging {
+        background-color: $general-hover-color;
+        transition: background-color 0.4s linear;
+    }
+
+    & .error {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background-color: rgba($general-featured-background-color, 0.5);        
+    }
+
+}

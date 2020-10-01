@@ -1,0 +1,39 @@
+@import "../-General/Styles/variables.scss";
+
+.md-text {
+    //width: 100%;
+    color: $general-text-color;
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    margin: 0;
+
+    &.featured {
+        color: $general-featured-text-color;
+    }
+
+    &.bold {
+        font-weight: bold;
+    }
+    &.light {
+        font-weight: lighter;
+    }
+
+    &.large {
+        font-size: 18px;
+    }
+    &.medium {
+        font-size: 15px;
+    }
+    &.small {
+        font-size: 10px;
+    }
+
+    &.center {
+        text-align: center;
+    }
+    &.left {
+        text-align: left;
+    }
+    &.right {
+        text-align: right;
+    }
+}

@@ -1,0 +1,19 @@
+@import '../-General//Styles/variables.scss';
+
+.bullet-list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px 0;
+
+    svg {
+        flex-grow: 0;
+        width: 10px;
+        height: 100%;
+        margin: 0 5px;
+
+        path {
+            fill: $general-icon-color;
+        }
+    }
+}

@@ -1,0 +1,83 @@
+@import "../-General//Styles/variables.scss";
+
+.md-main-menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: $general-base-background-color;
+
+    &.position-top {
+        top: 0;
+        left: 0;    
+    }
+
+    &.position-bottom {
+        bottom: 0;
+        left: 0;
+    }
+
+    &.bordered-bottom {
+        border-bottom: 1px solid $general-base-border-color;
+    }
+
+    &.bordered-top {
+        border-top: 1px solid $general-base-border-color;
+    }
+
+    &.align-start {
+        flex-direction: row;
+    }
+
+    &.align-end {
+        flex-direction: row-reverse;
+    }
+
+    &.relative-position {
+        position: relative;
+    }
+
+    &.fix-position {
+        position: fixed;
+    }
+
+    &.absolute-position {
+        position: absolute;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+        margin: 0 5px;
+        padding: 0 5px;
+        cursor: pointer;
+        background-color: darken($general-base-background-color, 5);
+
+        &.icon-right {
+            flex-direction: row-reverse;
+        }
+
+        .icon-container {
+            padding: 5px;
+            height: calc(100% - 10px);
+
+            svg {
+                height: 100%;
+                width: 100%;
+
+                path {
+                    fill: $general-icon-color;
+                }
+            }
+        }
+
+        .icon-container:empty {
+            width: 0 !important;
+            padding: 0;
+        }
+    }
+    .menu-item:hover {
+        background-color: darken($general-base-background-color, 20);
+    }
+}

@@ -1,0 +1,10 @@
+@import '../../Control-Library/-General/Styles/variables.scss';
+
+.file-control-route {
+    height: 100vh;
+
+    .page-container {
+        width: calc(100% - 10px);
+        margin: 5px;
+    }
+}

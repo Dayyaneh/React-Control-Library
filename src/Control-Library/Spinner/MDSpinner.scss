@@ -1,0 +1,11 @@
+@import "../-General/Styles/variables.scss";
+
+.md-spinner {
+    circle:nth-child(odd) {
+        stroke: $general-place-holder;
+    }
+
+    circle:nth-child(even) {
+        stroke: $general-icon-color;
+    }
+}

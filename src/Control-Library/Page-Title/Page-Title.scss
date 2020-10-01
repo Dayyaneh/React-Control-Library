@@ -1,0 +1,56 @@
+@import "../-General/Styles/variables.scss";
+
+.md-page-title {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .segment {
+        flex-grow: 1;
+    }
+
+    .text-segment {
+        flex-grow: 0;
+        margin: 5px 10px 0 10px;
+        font-size: 25px;
+        font-weight: bolder;
+        color: $general-text-color;
+    }
+
+    .line {
+        display: flex;
+        flex-direction: column;
+    }
+    .line :first-child {
+        border-bottom: 4px solid $general-border-color;
+        flex-grow: 1;
+    }
+    .line :last-child {
+        border-top: 4px solid $general-border-color;
+        flex-grow: 1;
+    }
+
+    .icon-segment {
+        flex-grow: 0;
+        width: 50px;
+        height: 50px;
+
+        .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+
+            svg {
+                width: 30px;
+                height: 30px;
+
+                path {
+                    fill: $general-icon-color;
+                }
+            }
+        }
+    }
+}

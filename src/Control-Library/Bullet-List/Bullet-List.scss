@@ -1,0 +1,23 @@
+.list-item {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    svg {
+        flex-grow: 0;
+        height: calc(100% - 20px);
+        width: 40px;
+        padding: 10px;
+    }
+
+    p:nth-child(2) {
+        flex-grow: 0;
+        width: unset;
+        margin: 0 10px;
+    }
+
+    p:nth-child(3) {
+        flex-grow: 1;
+    }
+}
