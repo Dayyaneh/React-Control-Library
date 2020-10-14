@@ -1,0 +1,10 @@
+@import '../-General/Styles/variables.scss';
+
+.md-code-block {
+    background-color: $general-background-color;
+    border: 1px solid $general-base-border-color;
+    border-radius: 4px;
+    color: $general-text-color;
+    padding: 5px;
+    box-sizing: border-box;
+}

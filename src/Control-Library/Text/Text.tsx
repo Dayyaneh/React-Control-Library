@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactChildren } from "react";
+import React, { FunctionComponent } from "react";
 
 import './Text.scss'
 
@@ -6,6 +6,7 @@ export enum Alignment {
     Center = 'center',
     Left = 'left',
     Right = 'right',
+    Justify = 'justify'
 }
 
 interface iComponentProp {
@@ -32,7 +33,9 @@ const MDText: FunctionComponent<iComponentProp> = (props: iComponentProp) => {
         props.small ? 'small' : '',
         props.alignment === Alignment.Center ? 'center' : '',
         props.alignment === Alignment.Left ? 'left' : '',
-        props.alignment === Alignment.Right ? 'right' : '',
+        props.alignment === Alignment.Right ? 'right' : '',        
+        props.alignment === Alignment.Justify ? 'justify' : '',        
+
     ].join(' ')}>{props.children}</p>)
 }
 

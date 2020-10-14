@@ -68,7 +68,7 @@
     }
 
     &.dragging {
-        background-color: $general-hover-color;
+        background-color: $general-place-holder;
         transition: background-color 0.4s linear;
     }
 
@@ -80,5 +80,4 @@
         z-index: 100;
         background-color: rgba($general-featured-background-color, 0.5);        
     }
-
 }
