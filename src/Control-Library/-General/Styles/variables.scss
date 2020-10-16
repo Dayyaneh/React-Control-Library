@@ -1,3 +1,8 @@
+$general-border-radius: 5px;
+$general-normal-font-size: 15px;
+$general-large-font-size: 18px;
+$general-small-font-size: 10px;
+/*-----------------------------------------------------------------------------------------------*/
 $general-white: #fff;
 $general-base-color: #fbfbfb;
 $general-color-I: #768299;
@@ -7,7 +12,7 @@ $general-base-background-color: $general-base-color;
 $general-base-border-color: darken($general-base-color, 5%);
 
 $general-background-color: lighten(desaturate($general-color-I, 10%), 60%);
-$general-border-color: $general-color-I;
+$general-border-color: lighten($general-color-I, 35%);
 $general-text-color: $general-color-I;
 $general-icon-color: $general-color-I;
 $general-place-holder: lighten(desaturate($general-color-I, 10%), 30%);
@@ -21,4 +26,3 @@ $general-featured-icon-color: $general-color-II;
 $general-featured-place-holder: lighten(desaturate($general-color-II, 10%), 30%);
 $general-featured-disabled-color: lighten(desaturate($general-color-II, 10%), 30%);
 $general-featured-hover-color: lighten(saturate($general-color-II, 10%), 50%);
-/*----------------------------------------------------------------------------------------------*/

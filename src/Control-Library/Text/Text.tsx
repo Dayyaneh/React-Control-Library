@@ -24,7 +24,7 @@ interface iComponentProp {
 }
 
 const MDText: FunctionComponent<iComponentProp> = (props: iComponentProp) => {
-    return (<p className={['md-text',
+    return (<p className={['md-text', props.className, 
         props.featured ? 'featured' : '',
         props.bold ? 'bold' : '',
         props.light ? 'light' : '',
@@ -33,9 +33,8 @@ const MDText: FunctionComponent<iComponentProp> = (props: iComponentProp) => {
         props.small ? 'small' : '',
         props.alignment === Alignment.Center ? 'center' : '',
         props.alignment === Alignment.Left ? 'left' : '',
-        props.alignment === Alignment.Right ? 'right' : '',        
-        props.alignment === Alignment.Justify ? 'justify' : '',        
-
+        props.alignment === Alignment.Right ? 'right' : '',
+        props.alignment === Alignment.Justify ? 'justify' : '',
     ].join(' ')}>{props.children}</p>)
 }
 

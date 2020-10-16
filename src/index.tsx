@@ -16,6 +16,7 @@ import Search from './Routes/Search/Search';
 import DragDropFileRoute from './Routes/Drag-Drop-File/Drag-Drop-File-Route';
 
 import './index.css';
+import InputRoute from './Routes/Input/Input-Route';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -32,6 +33,9 @@ ReactDOM.render(
         </Route>
         <Route path="/file-drag-drop-control">
           <DragDropFileRoute />
+        </Route>
+        <Route path="/input-element">
+          <InputRoute />
         </Route>
         <Route path="/about">
           <About />
