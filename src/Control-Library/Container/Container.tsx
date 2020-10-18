@@ -16,6 +16,8 @@ interface iComponentProps {
     children?: React.ReactNode;
     bordered?: boolean | false;
     rounded?: boolean | false;
+    defaultMargin?: boolean | false;
+    entireParent?: boolean | false;
     direction?: Direction;
     height?: number;
     heightAsContent?: boolean;
@@ -31,8 +33,8 @@ const MDContainer: FunctionComponent<iComponentProps> = (props: iComponentProps)
     return (<div className={['md-container',
         props.bordered ? 'bordered' : '',
         props.rounded ? 'rounded' : '',
-        props.heightAsContent === true ? 'height-as-content' : '',
-        props.widthAsContent === true ?  'width-as-content' : '',
+        props.defaultMargin === true ? 'defualt-margin' : '',
+        props.entireParent === true ?  'entire-parent' : '',
         props.direction === Direction.Vertical || !props.direction ? 'v-direction' : '',
         props.direction === Direction.Horizontal ? 'h-direction' : '',
         props.height || props.width ? 'masuered' : 'equality',

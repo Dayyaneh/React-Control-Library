@@ -17,6 +17,9 @@ import DragDropFileRoute from './Routes/Drag-Drop-File/Drag-Drop-File-Route';
 
 import './index.css';
 import InputRoute from './Routes/Input/Input-Route';
+import MasterPage from './Routes/--MasterPage/MasterPage';
+import DropDownInputRoute from './Routes/DropDownInput/DropDownInputRoute';
+import HTMLEditorRoute from './Routes/HTML-Editor/HTM-Editor-Route';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,17 +28,31 @@ ReactDOM.render(
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/search/:id" 
-               component={(props: any) => <Search id={props.match.params.id} /> }>
+        <Route path="/search/:id"
+          component={(props: any) => <Search id={props.match.params.id} />}>
         </Route>
         <Route path="/file-control">
           <About />
         </Route>
-        <Route path="/file-drag-drop-control">
-          <DragDropFileRoute />
+        <Route path="/file-drag-drop">
+          <MasterPage>
+            <DragDropFileRoute />
+          </MasterPage>
         </Route>
-        <Route path="/input-element">
-          <InputRoute />
+        <Route path="/input">
+          <MasterPage>
+            <InputRoute />
+          </MasterPage>
+        </Route>
+        <Route path="/drop-down-input">
+          <MasterPage>
+            <DropDownInputRoute />
+          </MasterPage>
+        </Route>
+        <Route path="/html-editor">
+          <MasterPage>
+            <HTMLEditorRoute />
+          </MasterPage>
         </Route>
         <Route path="/about">
           <About />

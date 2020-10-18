@@ -6,7 +6,7 @@ $general-small-font-size: 10px;
 $general-white: #fff;
 $general-base-color: #fbfbfb;
 $general-color-I: #768299;
-$general-color-II: #f26522;
+$general-color-II: #e47e4f;
 
 $general-base-background-color: $general-base-color;
 $general-base-border-color: darken($general-base-color, 5%);
@@ -17,7 +17,7 @@ $general-text-color: $general-color-I;
 $general-icon-color: $general-color-I;
 $general-place-holder: lighten(desaturate($general-color-I, 10%), 30%);
 $general-disabled-color: lighten(desaturate($general-color-I, 10%), 30%);
-$general-hover-color: darken(saturate($general-color-I, 20%), 10%);
+$general-hover-color: darken(saturate($general-color-I, 10%), 5%);
 
 $general-featured-background-color: lighten($general-color-II, 40%);
 $general-featured-border-color: $general-color-II;

@@ -7,10 +7,15 @@ interface iComponentProps {
     outline?: boolean;
     borderLess?: boolean;
     featured?: boolean;
+    selected?: boolean;
 }
 
 const MDButton: FunctionComponent<iComponentProps> = (props: iComponentProps) => {
-    return (<button className={['md-button', props.outline ? 'outline' : '', props.featured ? 'featured' : '', props.borderLess ? 'border-less' : '' ].join(' ')} 
+    return (<button className={['md-button', 
+        props.outline ? 'outline' : '', 
+        props.featured ? 'featured' : '', 
+        props.borderLess ? 'border-less' : '',
+        props.selected ? 'selected' : '' ].join(' ')} 
         onClick={() => { props.onClick && props.onClick() }}>
         {props.children}
     </button>)

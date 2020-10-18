@@ -1,51 +1,57 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import IconAddFile from '../../Control-Library/-General/Icon/IconAddFile';
+
 import MDBulletList from '../../Control-Library/Bullet-List/Bullet-List';
 import MDBulletListItem from '../../Control-Library/Bullet-List/Bullet-List-Item';
 import MDCodeBlock from '../../Control-Library/Code-Block/Code-Block';
 import MDContainer, { ContentAlignment, Direction } from '../../Control-Library/Container/Container';
+import MDDropDownInput, { MDDropDownItemModel } from '../../Control-Library/DropDownInput/DropDownInput';
 import MDIcon, { IconType } from '../../Control-Library/Icon/Icon';
-import MDInput, { IconSpanLocation, InputMode } from '../../Control-Library/Input/Input';
-import MDMainMenu, { MDIconPosition, MDMenuBorder, MDMenuPosition } from '../../Control-Library/Main-Menu/Main-Menu';
 import MDPageTitle from '../../Control-Library/Page-Title/Page-Title';
 import MDText, { Alignment } from '../../Control-Library/Text/Text';
 
-const InputRoute: FunctionComponent = () => {
-    const OnLastNameChange = (value: string) => {
+const DropDownInputRoute: React.FunctionComponent = () => {
+    const SampleDataList: MDDropDownItemModel[] = [
+        { index: 1, value: 'James' },
+        { index: 1, value: 'John' },
+        { index: 1, value: 'Robert' },
+        { index: 1, value: 'Michael' },
+        { index: 1, value: 'William' },
+        { index: 1, value: 'David' },
+        { index: 1, value: 'Richard' },
+        { index: 1, value: 'Joseph' },
+        { index: 1, value: 'Charles' },
+        { index: 1, value: 'Thomas' }
+    ];
+
+    const OnSelect = (value: MDDropDownItemModel) => {
         console.log(value);
     }
 
     return (<MDContainer bordered rounded defaultMargin className='page-container'>
-        <MDPageTitle Title="Input" Icon={<IconAddFile />} />
+        <MDPageTitle Title="Drop Down Input" Icon={<MDIcon IconType={IconType.Design} />} />
         <MDContainer defaultMargin>
-            <MDText light alignment={Alignment.Justify}>Ex enim cupidatat deserunt et consectetur labore fugiat deserunt nostrud velit veniam nulla. 
-            Tempor do amet officia irure adipisicing tempor incididunt duis esse. Est in id consectetur do ad culpa minim veniam culpa veniam nisi enim incididunt. 
-            Laboris sint ullamco nostrud nisi adipisicing quis reprehenderit. Exercitation adipisicing sint voluptate nostrud nulla. 
-            Cupidatat ea aliqua consectetur nostrud voluptate.Cillum labore nisi deserunt tempor velit sint ex ad et cupidatat sint ex commodo. 
-            Tempor velit et ea velit aliquip proident labore laborum esse voluptate. Ad nostrud minim sit aliquip mollit dolore est est sint exercitation esse. 
-            Anim commodo aliquip culpa in commodo anim sint ea elit est officia amet officia. Consequat fugiat consequat dolore irure cillum ut incididunt. 
-            Non excepteur magna nisi pariatur eiusmod aliqua ea voluptate aliqua nostrud quis veniam incididunt.</MDText>
+            <MDText light alignment={Alignment.Justify}>
+                Aute sit ex non pariatur ut ea aliquip laborum. Consequat anim veniam mollit voluptate consectetur tempor deserunt. 
+                Lorem amet ad nisi velit et. Mollit nostrud laborum velit incididunt minim Lorem laboris laborum culpa nulla. 
+                Excepteur aute fugiat deserunt ex elit commodo voluptate amet officia dolor exercitation. Adipisicing adipisicing laboris dolore nostrud culpa. 
+                Aliqua nostrud anim do est. Duis et quis voluptate laboris ea. Est proident sunt ullamco ullamco duis quis.
+            </MDText>
         </MDContainer>
         <MDContainer defaultMargin>
             <MDText bold large>Example</MDText>
-            <MDContainer bordered rounded defaultMargin
+            <MDContainer bordered rounded defaultMargin height={200}
                 vAlignment={ContentAlignment.Center}
                 hAlignment={ContentAlignment.Center}>
-                <MDContainer direction={Direction.Horizontal} defaultMargin entireParent>
-                    <MDInput PlaceHolder='Enter your lirstname' />
-                    <MDInput PlaceHolder='Enter your lastname' IsRequiered OnChange={OnLastNameChange} />
-                    <MDInput PlaceHolder='Enter your Age' InputMode={InputMode.Number} />
+                <MDContainer vAlignment={ContentAlignment.Center} direction={Direction.Horizontal} entireParent>
+                    <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
+                    <MDDropDownInput PlaceHolder='Searchable example' Searchable List={SampleDataList} OnSelect={OnSelect} />
+                    <MDDropDownInput PlaceHolder='Searchable example' List={SampleDataList} />
+                </MDContainer>
+                <MDContainer direction={Direction.Horizontal}>
 
                 </MDContainer>
-                <MDContainer direction={Direction.Horizontal} defaultMargin entireParent>
-                    <MDInput PlaceHolder='Website URL' InputMode={InputMode.URL} />
-                    <MDInput PlaceHolder='Email Address' InputMode={InputMode.Email} />
-                    <MDInput PlaceHolder='Phone number' InputMode={InputMode.Phone} />
-                </MDContainer>
-                <MDContainer direction={Direction.Horizontal} defaultMargin entireParent>
-                    <MDInput PlaceHolder='Decimal number' InputMode={InputMode.Decimal} />
-                    <MDInput PlaceHolder='This is an example' Icon={<MDIcon IconType={IconType.Delete} />}></MDInput>
-                    <MDInput PlaceHolder='This is an example' IconSpanLocation={IconSpanLocation.Right} Icon={<MDIcon IconType={IconType.Delete} />}></MDInput>
+                <MDContainer direction={Direction.Horizontal}>
                 </MDContainer>
             </MDContainer>
         </MDContainer>
@@ -79,8 +85,7 @@ const InputRoute: FunctionComponent = () => {
             <MDText large bold>Sample Code</MDText>
             <MDCodeBlock code='<MDBulletListItem><MDText medium light>Elemet 2</MDText></MDBulletListItem>'></MDCodeBlock>
         </MDContainer>
-    </MDContainer>
-    )
+    </MDContainer>)
 }
 
-export default InputRoute;
+export default DropDownInputRoute;

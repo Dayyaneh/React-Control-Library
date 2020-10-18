@@ -43,7 +43,7 @@
             color: $general-disabled-color;
         }
     }
-
+    /*---------------------------------------------------------------------------------*/
     &.outline {
         color: $general-text-color;
         border: 1px solid $general-border-color;
@@ -54,7 +54,7 @@
         background-color: $general-hover-color;
         outline: none;
     }
-
+    /*---------------------------------------------------------------------------------*/
     &.border-less {
         color: $general-text-color;
         border: none;
@@ -68,16 +68,62 @@
 
         svg {
             path {
-                fill: $general-hover-color;
+                fill: darken($color: $general-icon-color, $amount: 20);
+            }
+        }
+    }
+    /*---------------------------------------------------------------------------------*/
+    &.selected {        
+        background-color: desaturate($general-hover-color, 10);
+
+        svg {
+            path {
+                fill: lighten($color: $general-icon-color, $amount: 15);
             }
         }
     }
 
+    &.selected:hover:not(:disabled) {
+        background-color: $general-hover-color;
+
+        svg {
+            path {
+                fill: darken($color: $general-icon-color, $amount: 20);
+            }
+        }
+    }
+    /*---------------------------------------------------------------------------------*/
     &.featured:not(:disabled) {
         background-color: $general-featured-background-color;
+
+        svg {
+            path {
+                fill: $general-featured-icon-color;
+            }
+        }
     }
 
     &.featured:hover:not(:disabled) {
         outline: none;
     }
+    /*---------------------------------------------------------------------------------*/
+    &.border-less.featured:not(:disabled) {
+        background-color: transparent;
+
+        svg {
+            path {
+                fill: $general-featured-icon-color;
+            }
+        }
+    }
+
+    &.border-less.featured:hover:not(:disabled) {
+        outline: none;
+        svg {
+            path {
+                fill: darken($color: $general-featured-icon-color, $amount: 20);
+            }
+        }
+    }
+    /*---------------------------------------------------------------------------------*/
 }
