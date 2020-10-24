@@ -5,7 +5,8 @@ import MDText from '../Text/Text';
 import './DropDownInput.scss';
 
 export interface MDDropDownItemModel {
-    index: number,
+    index?: number,
+    caption?: string,    
     value: string,
 }
 
@@ -30,7 +31,11 @@ const MDDropDownInput: React.FunctionComponent<iProps> = (props: iProps) => {
     }
 
     const OnItemSelect = (selected: MDDropDownItemModel) => {
-        setInputValue(selected.value);
+        if (selected.caption)
+            setInputValue(selected.caption);
+        else
+            setInputValue(selected.value);
+            
         props.OnSelect && props.OnSelect(selected);
     }
 
@@ -72,7 +77,7 @@ const MDDropDownInput: React.FunctionComponent<iProps> = (props: iProps) => {
         </div>
         <div className={['drop-down-container', isFocus ? 'open' : 'close'].join(' ')}>
             {list && list.map((item: MDDropDownItemModel) => {
-                return (<div className='drop-down-item' onClick={() => { OnItemSelect(item) }}>{item.value}</div>)
+                return (<div className='drop-down-item' onClick={() => { OnItemSelect(item) }}>{ item.caption ? item.caption : item.value}</div>)
             })}
             {!list || list.length === 0 && <div className='drop-down-item no-item'>No match items</div>}
         </div>

@@ -14,10 +14,6 @@ const MasterPage: React.FunctionComponent<iProps> = (props: iProps) => {
                 Index: 1,
                 Caption: 'Menu Item 1',
                 ToolTip: 'Menu Item 1',
-                Icon: <IconAddFile />,
-                IocnPosition: MDIconPosition.Left,
-                OnClick: () => {
-                }
             },
             {
                 Index: 2,
@@ -29,6 +25,7 @@ const MasterPage: React.FunctionComponent<iProps> = (props: iProps) => {
                 Index: 3,
                 Caption: 'Drop Down Input',
                 ToolTip: 'Drop Down Input',
+                Icon: <MDIcon IconType={IconType.Design}/>,
                 URL: '/drop-down-input',
             },
             {
@@ -42,7 +39,15 @@ const MasterPage: React.FunctionComponent<iProps> = (props: iProps) => {
                 Index: 5,
                 Caption: 'File Drag Drop',
                 ToolTip: 'File Drag Drop',
+                Icon: <MDIcon IconType={IconType.FileUpload}/>,
                 URL: '/file-drag-drop',
+            },
+            {
+                Index: 5,
+                Caption: 'Client Side Grid',
+                ToolTip: 'Client Side Grid',
+                Icon: <MDIcon IconType={IconType.Grid}/>,
+                URL: '/Client-Side-Grid',
             }]} />
         {props.children}
     </>)

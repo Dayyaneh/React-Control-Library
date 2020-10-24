@@ -78,7 +78,7 @@ const MDMainMenu: FunctionComponent<iComponentProps> = (props: iComponentProps) 
                             gotoURL(anItem.URL);
                         }
                     }} >
-                    <div className='icon-container' style={{ width: props.height ? props.height : defaultHeight }}>{anItem.Icon}</div>
+                    <div className='icon-container'>{anItem.Icon}</div>
                     <MDText bold alignment={Alignment.Center}>{anItem.Caption}</MDText>
                 </div>);
             })

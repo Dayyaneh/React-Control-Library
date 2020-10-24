@@ -20,6 +20,7 @@ import InputRoute from './Routes/Input/Input-Route';
 import MasterPage from './Routes/--MasterPage/MasterPage';
 import DropDownInputRoute from './Routes/DropDownInput/DropDownInputRoute';
 import HTMLEditorRoute from './Routes/HTML-Editor/HTM-Editor-Route';
+import ClientSideGridRoute from './Routes/Client-Side-Grid/Client-Side-Grid-Route';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -52,6 +53,11 @@ ReactDOM.render(
         <Route path="/html-editor">
           <MasterPage>
             <HTMLEditorRoute />
+          </MasterPage>
+        </Route>
+        <Route path="/Client-Side-Grid">
+          <MasterPage>
+            <ClientSideGridRoute />
           </MasterPage>
         </Route>
         <Route path="/about">

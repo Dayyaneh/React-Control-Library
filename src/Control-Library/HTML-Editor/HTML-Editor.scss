@@ -10,14 +10,36 @@
     border-radius: $general-border-radius;
 
     .menu-bar {
+        display: flex;
+        flex-direction: row;
         flex-grow: 0;
         height: 40px;
-        width: 100%;
+        width: calc(100% - 10px);
         padding: 5px;
         margin: 0;
         background-color: $general-background-color;
         border-bottom: 1px solid $general-border-color;
         border-radius: $general-border-radius $general-border-radius 0 0;
+
+        .font-container {
+            display: flex;
+            flex-direction: row;    
+            flex-grow: 1;
+            height: 100%;
+            width: 100%;
+
+            .md-drop-down-input {
+                height: 100%;
+                flex-grow: 1;
+            }
+        }
+
+        .menu-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
     }
 
     .editor {

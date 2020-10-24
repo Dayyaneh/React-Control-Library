@@ -15,6 +15,7 @@ import IconCut from '../-General/Icon/IconCut';
 import IconDelete from '../-General/Icon/IconDelete';
 import IconDesign from '../-General/Icon/IconDesign';
 import IconFileUpload from '../-General/Icon/IconFileUpload';
+import IconGrid from '../-General/Icon/IconGrid';
 import IconItalic from '../-General/Icon/IconItalic';
 import IconLeftIndent from '../-General/Icon/IconLeftIndent';
 import IconLeftJustify from '../-General/Icon/IconLeftJustify';
@@ -52,6 +53,7 @@ export enum IconType {
     Undo = 'Undo',
     Text = 'Text',
     Design = 'Design',
+    Grid = 'Grid',
 }
 
 interface iProps {
@@ -85,6 +87,7 @@ const MDIcon: React.FunctionComponent<iProps> = (props: iProps) => {
         case IconType.Undo: return (<IconUndo />)
         case IconType.Text: return (<IconText />)
         case IconType.Design: return (<IconDesign />)
+        case IconType.Grid: return (<IconGrid />)
         default: return (<></>)
     }
 }

@@ -32,9 +32,9 @@ const DropDownInputRoute: React.FunctionComponent = () => {
         <MDPageTitle Title="Drop Down Input" Icon={<MDIcon IconType={IconType.Design} />} />
         <MDContainer defaultMargin>
             <MDText light alignment={Alignment.Justify}>
-                Aute sit ex non pariatur ut ea aliquip laborum. Consequat anim veniam mollit voluptate consectetur tempor deserunt. 
-                Lorem amet ad nisi velit et. Mollit nostrud laborum velit incididunt minim Lorem laboris laborum culpa nulla. 
-                Excepteur aute fugiat deserunt ex elit commodo voluptate amet officia dolor exercitation. Adipisicing adipisicing laboris dolore nostrud culpa. 
+                Aute sit ex non pariatur ut ea aliquip laborum. Consequat anim veniam mollit voluptate consectetur tempor deserunt.
+                Lorem amet ad nisi velit et. Mollit nostrud laborum velit incididunt minim Lorem laboris laborum culpa nulla.
+                Excepteur aute fugiat deserunt ex elit commodo voluptate amet officia dolor exercitation. Adipisicing adipisicing laboris dolore nostrud culpa.
                 Aliqua nostrud anim do est. Duis et quis voluptate laboris ea. Est proident sunt ullamco ullamco duis quis.
             </MDText>
         </MDContainer>
@@ -43,13 +43,13 @@ const DropDownInputRoute: React.FunctionComponent = () => {
             <MDContainer bordered rounded defaultMargin height={200}
                 vAlignment={ContentAlignment.Center}
                 hAlignment={ContentAlignment.Center}>
-                <MDContainer vAlignment={ContentAlignment.Center} direction={Direction.Horizontal} entireParent>
+                <MDContainer vAlignment={ContentAlignment.Center} direction={Direction.Horizontal}>
                     <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
                     <MDDropDownInput PlaceHolder='Searchable example' Searchable List={SampleDataList} OnSelect={OnSelect} />
-                    <MDDropDownInput PlaceHolder='Searchable example' List={SampleDataList} />
+                    <MDDropDownInput List={SampleDataList} />
                 </MDContainer>
-                <MDContainer direction={Direction.Horizontal}>
-
+                <MDContainer direction={Direction.Horizontal} height={25}>
+                    <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
                 </MDContainer>
                 <MDContainer direction={Direction.Horizontal}>
                 </MDContainer>

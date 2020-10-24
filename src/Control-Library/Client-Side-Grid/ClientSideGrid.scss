@@ -1,0 +1,58 @@
+@import "../-General/Styles/variables.scss";
+
+.client-side-grid {
+    width: 100%;
+    border-spacing: 0 !important;
+    border: 1px solid $general-border-color;
+    border-radius: $general-border-radius;
+    background-color: $general-background-color;
+
+    thead {
+        tr {    
+            height: 40px;
+            background-color: $general-base-background-color;
+
+            th {
+                font-size: $general-normal-font-size;
+                padding: 0 5px;
+                text-align: start;
+                border-bottom: 1px solid $general-border-color;
+                border-right: 1px solid $general-border-color;
+                box-sizing: border-box;
+            }
+
+            th:first-child {
+                border-top-left-radius: $general-border-radius;
+            }
+
+            th:last-child {
+                border-right: none;
+                border-top-right-radius: $general-border-radius;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            height: 40px;
+
+            td {
+                font-size: $general-normal-font-size;
+                padding: 0 5px;
+                border-bottom: 1px solid $general-border-color;
+                border-right: 1px solid $general-border-color;
+                box-sizing: border-box;
+            }
+
+            td:last-child {
+                border-right: none;
+            }
+        }
+
+        tr:last-child {
+            td {
+                border-bottom: none;                
+            }
+        }
+    }
+}
