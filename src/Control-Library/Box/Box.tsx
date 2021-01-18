@@ -3,6 +3,7 @@ import useMediaQuery, { MobileQuery, TabletQuery } from '../-General/Hooks/Media
 import classNames from '../-General/General';
 
 import './Box.scss';
+import { stringify } from 'querystring';
 
 export enum Direction {
     Vertical = 'vertical',
@@ -32,7 +33,7 @@ class iGeneralProps {
     ContentHorizontalAlign?: ContentAlignment;
 
     Grow?: number;
-    HeightDivision?: string;
+    Division?: string;
 
     WholeScreen?: boolean | false;
     WholeHeight?: boolean | false;
@@ -40,7 +41,6 @@ class iGeneralProps {
 
     DefaultMargin?: boolean | false;
     NoMargin?: boolean | false;
-
     DefaultPadding?: boolean | false;
     NoPadding?: boolean | false;
 
@@ -60,12 +60,28 @@ class iProps extends iGeneralProps {
 
 const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
     const [parentDirection, setParentDirection] = useState<Direction>();
+    const [parentDistribution, setParentDistribution] = useState<Distribution>();
     const isMobile = useMediaQuery(MobileQuery);
     const isTablet = useMediaQuery(TabletQuery);
 
     const iref = useRef(null);
 
     useEffect(() => {
+        if (iref.current?.['parentNode']['className']) {
+            const className = iref.current?.['parentNode']['className'];
+            if (className) {
+                if ((className + '').includes('distribution-equal')) {
+                    setParentDistribution(Distribution.Equal)
+                } else if ((className + '').includes('distribution-size')) {
+                    setParentDistribution(Distribution.Size)
+                } else if ((className + '').includes('distribution-growth')) {
+                    setParentDistribution(Distribution.Growth)
+                } else if ((className + '').includes('distribution-division')) {
+                    setParentDistribution(Distribution.Division)
+                }
+            }
+        }
+
         if (iref.current?.['parentNode']['style']['flexDirection']) {
             const flexDirection = iref.current?.['parentNode']['style']['flexDirection'];
             if (flexDirection === 'row')
@@ -73,7 +89,7 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
             else if (flexDirection === 'column')
                 setParentDirection(Direction.Vertical);
         }
-    }, []);
+    }, [iref]);
     /*-------------------------------------------------------------------------------------------*/
     /*-------------------------------------------------------------------------------------------*/
     const getBorderedClassName = (): string => {
@@ -253,7 +269,7 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
                 return { flexGrow: props.Tablet?.Grow };
         }
 
-        if (props.Tablet?.Grow !== null && props.Tablet?.Grow !== undefined && props.Tablet?.Grow !== NaN)
+        if (props.Grow !== null && props.Grow !== undefined && props.Grow !== NaN && parentDistribution === Distribution.Growth)
             return { flexGrow: props.Grow };
     }
 
@@ -293,21 +309,36 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
             return { height: '100vh', width: '100vw' };
     }
 
-    const getWholeHeight = () => {
-        if (isMobile) {
-            if (props.Mobile?.WholeHeight === true)
-                return { height: '100%' };
+    const getDevision = () => {
+        if (props.Division) {
+            const splitArray = props.Division.split('/');
+            if (splitArray.length = 2) {
+                return { Divisor: parseInt(splitArray[0]), Denominator: parseInt(splitArray[1]) };
+            }
         }
-        else if (isTablet) {
-            if (props.Tablet?.WholeHeight === true)
-                return { height: '100%' };
-        }
-
-        if (props.WholeHeight === true)
-            return { height: '100%' };
     }
 
-    const getWholeWidth = () => {
+    const getHeight = () => {
+        if (isMobile) {
+            if (props.Mobile?.WholeHeight === true)
+                return { height: '100%' };
+        }
+        else if (isTablet) {
+            if (props.Tablet?.WholeHeight === true)
+                return { height: '100%' };
+        }
+
+        if (props.WholeHeight === true) {
+            return { height: '100%' };
+        } else if (props.Division && parentDistribution === Distribution.Division && parentDirection === Direction.Vertical) {
+            const devision = getDevision();
+            if (devision) {
+                return { height: 'calc(' + devision.Divisor + '*100%/' + devision.Denominator + ')' };
+            }
+        }
+    }
+
+    const getWidth = () => {
         if (isMobile) {
             if (props.Mobile?.WholeHeight === true)
                 return { width: '100%' };
@@ -317,8 +348,14 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
                 return { width: '100%' };
         }
 
-        if (props.WholeHeight === true)
+        if (props.WholeHeight === true) {
             return { width: '100%' };
+        } else if (props.Division && parentDistribution === Distribution.Division && parentDirection === Direction.Horizontal) {
+            const devision = getDevision();
+            if (devision) {
+                return { width: 'calc(' + devision.Divisor + '*100%/' + devision.Denominator + ')' };
+            }
+        }
     }
 
     const getNoMargin = () => {
@@ -353,8 +390,8 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
     const getStyle = (): React.CSSProperties => {
         const retValue = Object.assign({ ...props.Style },
             getBackgroundColor(),
-            getWholeHeight(),
-            getWholeWidth(),
+            getHeight(),
+            getWidth(),
             getWholeScreen(),
             getFlexGrow(),
             getNoPadding(),

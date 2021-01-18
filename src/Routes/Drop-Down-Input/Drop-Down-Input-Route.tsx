@@ -48,19 +48,10 @@ const DropDownInputRoute: React.FunctionComponent = () => {
                     <MDDropDownInput PlaceHolder='Searchable example' Searchable List={SampleDataList} OnSelect={OnSelect} />
                     <MDDropDownInput List={SampleDataList} />
                 </MDBox>
-                <MDBox DefaultMargin ContentDirection={Direction.Horizontal} ContentDistribution={Distribution.Equal}>
-                    <MDBox ContentDirection={Direction.Horizontal}>
+                <MDBox DefaultMargin ContentDirection={Direction.Horizontal} ContentDistribution={Distribution.Division}>
+                    <MDBox ContentDirection={Direction.Horizontal} Division='1/3'>
                         <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
                     </MDBox>
-                    <MDBox ContentDirection={Direction.Horizontal}>
-                        <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
-                    </MDBox>
-                    <MDBox ContentDirection={Direction.Horizontal}>
-                        <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
-                    </MDBox>
-                </MDBox>
-                <MDBox DefaultMargin ContentDirection={Direction.Horizontal}>
-                    <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
                 </MDBox>
             </MDBox>
         </MDBox>

@@ -49,7 +49,7 @@ const BoxRoute: FunctionComponent = () => {
         </MDBox>
 
         <MDBox ContentDirection={Direction.Vertical} DefaultMargin DefaultPadding>
-            <MDText bold large>1) Example - Distributed as the content size</MDText>
+            <MDText bold large>2) Example - Distributed as the content size</MDText>
             <MDBox Bordered Rounded DefaultPadding>
                 <MDBox WholeWidth
                     ContentDistribution={Distribution.Size}
@@ -77,7 +77,57 @@ const BoxRoute: FunctionComponent = () => {
             </MDBox>
         </MDBox>
 
+        <MDBox ContentDirection={Direction.Vertical} DefaultMargin DefaultPadding>
+            <MDText bold large>3) Example - Distributed by growth</MDText>
+            <MDBox Bordered Rounded DefaultPadding>
+                <MDBox WholeWidth
+                    ContentDistribution={Distribution.Growth}
+                    ContentDirection={Direction.Horizontal}>
+                    <MDBox featured Bordered
+                        Grow={1}
+                        ContentVerticalAlign={ContentAlignment.Center}
+                        ContentHorizontalAlign={ContentAlignment.Center} >
+                        <MDText>Grow = 1</MDText>
+                    </MDBox>
+                    <MDBox featured Bordered
+                        Grow={2}
+                        ContentVerticalAlign={ContentAlignment.Center}
+                        ContentHorizontalAlign={ContentAlignment.Center} >
+                        <MDText>Grow = 2</MDText>
+                    </MDBox>
+                </MDBox>
+            </MDBox>
+            <MDBox DefaultPadding>
+                <MDText medium bold>Sample Code</MDText>
+                <MDCodeBlock code='<MDBox WholeWidth ContentDistribution={Distribution.Growth} ContentDirection={Direction.Horizontal}> . . .</MDBox>'></MDCodeBlock>
+            </MDBox>
+        </MDBox>
 
+        <MDBox ContentDirection={Direction.Vertical} DefaultMargin DefaultPadding>
+            <MDText bold large>4) Example - Distributed by division</MDText>
+            <MDBox Bordered Rounded DefaultPadding>
+                <MDBox WholeWidth
+                    ContentDistribution={Distribution.Division}
+                    ContentDirection={Direction.Horizontal}>
+                    <MDBox featured Bordered
+                        Division='1/3'
+                        ContentVerticalAlign={ContentAlignment.Center}
+                        ContentHorizontalAlign={ContentAlignment.Center} >
+                        <MDText>1/3</MDText>
+                    </MDBox>
+                    <MDBox featured Bordered
+                        Division='2/4'
+                        ContentVerticalAlign={ContentAlignment.Center}
+                        ContentHorizontalAlign={ContentAlignment.Center} >
+                        <MDText>2/4</MDText>
+                    </MDBox>
+                </MDBox>
+            </MDBox>
+            <MDBox DefaultPadding>
+                <MDText medium bold>Sample Code</MDText>
+                <MDCodeBlock code='<MDBox SizeOption={SizeOption.SizeAsContent}>...</MDBox>'></MDCodeBlock>
+            </MDBox>
+        </MDBox>
 
         <MDBox ContentDirection={Direction.Vertical} DefaultMargin DefaultPadding>
             <MDText large bold>Properties</MDText>
@@ -110,6 +160,7 @@ const BoxRoute: FunctionComponent = () => {
                 </MDBulletListItem>
             </MDBulletList>
         </MDBox>
+        
         <MDBox DefaultMargin DefaultPadding>
             <MDText large bold>Sample Code</MDText>
             <MDCodeBlock code='<MDBulletListItem><MDText medium light>Elemet 2</MDText></MDBulletListItem>'></MDCodeBlock>
