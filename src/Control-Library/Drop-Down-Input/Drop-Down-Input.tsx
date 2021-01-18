@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import MDIcon, { IconType } from '../Icon/Icon';
 import MDText from '../Text/Text';
 
-import './DropDownInput.scss';
+import './Drop-Down-Input.scss';
 
 export interface MDDropDownItemModel {
     index?: number,

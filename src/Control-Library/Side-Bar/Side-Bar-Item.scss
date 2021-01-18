@@ -1,0 +1,105 @@
+@import "../-General/Styles/variables.scss";
+
+.md-side-bar-item {
+    display: flex;
+    flex-direction: column;
+
+    .menu-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sub-menu-container {
+        padding-left: 10px;
+        overflow: hidden;
+        height: 0;
+
+        &.expanding {
+            height: unset;
+            transition: all 2s linear;
+        }
+
+        &.collapsing {
+            height: 0;
+        }
+    }
+
+    &.menu-item {
+        height: 50px;
+        padding: 5px 5px;
+        border-bottom: 1px solid $general-base-border-color;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &.expanding {
+            height: unset;
+            transition: all 2s linear;
+        }
+
+        &.collapsing {
+            height: 50px;
+        }
+
+        &.selected {
+            p {
+                color: $general-featured-text-color;
+            }
+            path {
+                fill: $general-featured-text-color !important;
+            }
+        }
+
+        p {
+            flex-grow: 1;
+        }
+
+        .icon-container {
+            padding: 5px;
+            height: calc(100% - 10px);
+            width: 25px;
+
+            svg {
+                height: 100%;
+                width: 100%;
+
+                path {
+                    fill: $general-icon-color;
+                }
+            }
+        }
+
+        .icon-arrow-container {
+            padding: 5px;
+            height: calc(100% - 10px);
+            width: 25px;
+
+            svg {
+                height: 100%;
+                width: 100%;
+
+                path {
+                    fill: $general-icon-color;
+                }
+            }
+
+            &.collapsing {
+                svg {
+                    transform: rotate(180deg);
+                    transition: all 100ms linear;
+                }
+            }
+        }
+    }
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: $general-mobile-max-width) {
+}

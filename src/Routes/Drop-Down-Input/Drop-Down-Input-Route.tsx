@@ -1,11 +1,9 @@
 import React from 'react';
-import IconAddFile from '../../Control-Library/-General/Icon/IconAddFile';
-
+import MDBox, { Direction, Distribution } from '../../Control-Library/Box/Box';
 import MDBulletList from '../../Control-Library/Bullet-List/Bullet-List';
 import MDBulletListItem from '../../Control-Library/Bullet-List/Bullet-List-Item';
 import MDCodeBlock from '../../Control-Library/Code-Block/Code-Block';
-import MDContainer, { ContentAlignment, Direction } from '../../Control-Library/Container/Container';
-import MDDropDownInput, { MDDropDownItemModel } from '../../Control-Library/DropDownInput/DropDownInput';
+import MDDropDownInput, { MDDropDownItemModel } from '../../Control-Library/Drop-Down-Input/Drop-Down-Input';
 import MDIcon, { IconType } from '../../Control-Library/Icon/Icon';
 import MDPageTitle from '../../Control-Library/Page-Title/Page-Title';
 import MDText, { Alignment } from '../../Control-Library/Text/Text';
@@ -28,34 +26,45 @@ const DropDownInputRoute: React.FunctionComponent = () => {
         console.log(value);
     }
 
-    return (<MDContainer bordered rounded defaultMargin className='page-container'>
+    return (<MDBox Bordered Rounded DefaultMargin ClassName='page-container'>
         <MDPageTitle Title="Drop Down Input" Icon={<MDIcon IconType={IconType.Design} />} />
-        <MDContainer defaultMargin>
+        <MDBox DefaultMargin>
             <MDText light alignment={Alignment.Justify}>
                 Aute sit ex non pariatur ut ea aliquip laborum. Consequat anim veniam mollit voluptate consectetur tempor deserunt.
                 Lorem amet ad nisi velit et. Mollit nostrud laborum velit incididunt minim Lorem laboris laborum culpa nulla.
                 Excepteur aute fugiat deserunt ex elit commodo voluptate amet officia dolor exercitation. Adipisicing adipisicing laboris dolore nostrud culpa.
                 Aliqua nostrud anim do est. Duis et quis voluptate laboris ea. Est proident sunt ullamco ullamco duis quis.
             </MDText>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText bold large>Example</MDText>
-            <MDContainer bordered rounded defaultMargin height={200}
-                vAlignment={ContentAlignment.Center}
-                hAlignment={ContentAlignment.Center}>
-                <MDContainer vAlignment={ContentAlignment.Center} direction={Direction.Horizontal}>
+            <MDBox Bordered Rounded DefaultMargin DefaultPadding
+                ContentDirection={Direction.Vertical}
+                Mobile={{ Bordered: false, DefaultPadding: false, DefaultMargin: false }}>
+                <MDBox DefaultMargin
+                    ContentDirection={Direction.Horizontal}
+                    Mobile={{ ContentDirection: Direction.Vertical }} >
                     <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
                     <MDDropDownInput PlaceHolder='Searchable example' Searchable List={SampleDataList} OnSelect={OnSelect} />
                     <MDDropDownInput List={SampleDataList} />
-                </MDContainer>
-                <MDContainer direction={Direction.Horizontal} height={25}>
+                </MDBox>
+                <MDBox DefaultMargin ContentDirection={Direction.Horizontal} ContentDistribution={Distribution.Equal}>
+                    <MDBox ContentDirection={Direction.Horizontal}>
+                        <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
+                    </MDBox>
+                    <MDBox ContentDirection={Direction.Horizontal}>
+                        <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
+                    </MDBox>
+                    <MDBox ContentDirection={Direction.Horizontal}>
+                        <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
+                    </MDBox>
+                </MDBox>
+                <MDBox DefaultMargin ContentDirection={Direction.Horizontal}>
                     <MDDropDownInput PlaceHolder='This is an example' List={SampleDataList} OnSelect={OnSelect} />
-                </MDContainer>
-                <MDContainer direction={Direction.Horizontal}>
-                </MDContainer>
-            </MDContainer>
-        </MDContainer>
-        <MDContainer defaultMargin>
+                </MDBox>
+            </MDBox>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText large bold>Properties</MDText>
             <MDText medium light>For setting up this control there are some options which describe below </MDText>
             <MDBulletList>
@@ -80,12 +89,12 @@ const DropDownInputRoute: React.FunctionComponent = () => {
                     <MDText medium>This is a call back function for having access to the chosen file</MDText>
                 </MDBulletListItem>
             </MDBulletList>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText large bold>Sample Code</MDText>
             <MDCodeBlock code='<MDBulletListItem><MDText medium light>Elemet 2</MDText></MDBulletListItem>'></MDCodeBlock>
-        </MDContainer>
-    </MDContainer>)
+        </MDBox>
+    </MDBox>)
 }
 
 export default DropDownInputRoute;

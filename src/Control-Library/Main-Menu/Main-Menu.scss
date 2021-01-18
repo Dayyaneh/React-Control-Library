@@ -1,9 +1,10 @@
-@import "../-General//Styles/variables.scss";
+@import "../-General/Styles/variables.scss";
 
 .md-main-menu {
     display: flex;
     flex-direction: row;
     width: 100%;
+    z-index: $z-index-layer5;
     background-color: $general-base-background-color;
 
     &.position-top {
@@ -77,6 +78,19 @@
             width: 0 !important;
             padding: 0;
         }
+    }
+    .menu-item:hover {
+        background-color: darken($general-base-background-color, 20);
+    }
+
+    .menu-logo {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        height: 100%;
+        margin: 0 5px 0 20px;
+        padding: 0 5px;
+        cursor: pointer;
     }
     .menu-item:hover {
         background-color: darken($general-base-background-color, 20);

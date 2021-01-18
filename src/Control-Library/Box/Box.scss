@@ -1,0 +1,74 @@
+@import "../-General/Styles/variables.scss";
+
+.md-box {
+    display: flex;
+    box-sizing: border-box;
+    /*---------------------------------------------------------------------------------*/
+    &.featured {
+        @import "../-General/Styles/variables.scss";
+        background-color: $general-featured-background-color;
+
+        &.bordered {
+            border: 1px solid $general-featured-icon-color;
+        }
+    }
+    /*---------------------------------------------------------------------------------*/
+    &.bordered {
+        border: 1px solid $general-base-border-color;
+    }
+
+    &.rounded {
+        border-radius: 5px;
+    }
+
+    &.vertical-start {
+        align-items: flex-start;
+    }
+
+    &.vertical-center {
+        align-items: center;
+    }
+
+    &.vertical-end {
+        align-items: flex-end;
+    }
+
+    &.horizontal-start {
+        justify-content: flex-start;
+    }
+
+    &.horizontal-center {
+        justify-content: center;
+    }
+
+    &.horizontal-end {
+        justify-content: flex-end;
+    }
+    /*---------------------------------------------------------------------------------*/
+    &.distribution-equal {
+        & > * {
+            flex-grow: 1;
+        }
+    }
+
+    &.distribution-size {
+        & > * {
+            flex-grow: 0;
+        }
+    }
+
+    &.distribution-division {
+        & > * {
+            flex-grow: 0;
+        }
+    }
+    /*---------------------------------------------------------------------------------*/
+    &.defualt-margin {
+        margin: $general-default-margin;
+    }
+
+    &.defualt-padding {
+        padding: $general-default-padding;
+    }
+    /*---------------------------------------------------------------------------------*/
+}

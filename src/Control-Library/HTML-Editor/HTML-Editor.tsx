@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react';
 
 import MDButton from '../Button/Button';
-import MDContainer, { Direction } from '../Container/Container';
-import MDDropDownInput from '../DropDownInput/DropDownInput';
+import MDDropDownInput from '../Drop-Down-Input/Drop-Down-Input';
 import MDIcon, { IconType } from '../Icon/Icon';
 
 import './HTML-Editor.scss';

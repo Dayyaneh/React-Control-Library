@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 
-import MDContainer from "../../Control-Library/Container/Container";
 import MDFileDragDrop from "../../Control-Library/File-DragDrop/File-Drag-Drop";
 import MDPageTitle from "../../Control-Library/Page-Title/Page-Title";
 import MDText, { Alignment } from "../../Control-Library/Text/Text";
@@ -9,22 +8,23 @@ import MDBulletListItem from "../../Control-Library/Bullet-List/Bullet-List-Item
 import MDCodeBlock from "../../Control-Library/Code-Block/Code-Block";
 
 import IconAddFile from "../../Control-Library/-General/Icon/IconAddFile";
+import MDBox from "../../Control-Library/Box/Box";
 
 const DragDropFileRoute: FunctionComponent = () => {
-    return (<MDContainer bordered rounded defaultMargin className='page-container'>
+    return (<MDBox Bordered Rounded DefaultMargin ClassName='page-container'>
         <MDPageTitle Title="File Drag Drop" Icon={<IconAddFile />} />
-        <MDContainer defaultMargin>
+        <MDBox DefaultMargin>
             <MDText light alignment={Alignment.Justify}>This control is designed for supporting file choosing by drag and drop.
             That means the user can drag one or more files and drop it on the control area.
             This control as the developer wise has some options for setting it up in an appropriate way.
             In this Page you can find out how you can use and treat it.
                 It will be more applicable in desktop and won't be good enough for mobile</MDText>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText bold large>Example</MDText>
             <MDFileDragDrop placeHolder="Drag your files here" multiFile />
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText large bold>Properties</MDText>
             <MDText medium light>For setting up this control there are some options which describe below </MDText>
             <MDBulletList>
@@ -49,11 +49,11 @@ const DragDropFileRoute: FunctionComponent = () => {
                     <MDText medium>This is a call back function for having access to the chosen file</MDText>
                 </MDBulletListItem>
             </MDBulletList>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText large bold>Sample Code</MDText>
             <MDCodeBlock code='<MDBulletListItem><MDText medium light>Elemet 2</MDText></MDBulletListItem>'></MDCodeBlock>
-        </MDContainer>
-    </MDContainer>);
+        </MDBox>
+    </MDBox>);
 }
 export default DragDropFileRoute;

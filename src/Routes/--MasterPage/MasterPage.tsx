@@ -1,56 +1,115 @@
 import React from 'react';
-import IconAddFile from '../../Control-Library/-General/Icon/IconAddFile';
+import MDBox, { Direction, Distribution } from '../../Control-Library/Box/Box';
 import MDIcon, { IconType } from '../../Control-Library/Icon/Icon';
-import MDMainMenu, { MDIconPosition, MDMenuBorder, MDMenuPosition } from '../../Control-Library/Main-Menu/Main-Menu';
+import MDMainMenu, { MDMenuBorder, MDMenuPosition } from '../../Control-Library/Main-Menu/Main-Menu';
+import MDSideBar from '../../Control-Library/Side-Bar/Side-Bar';
 
 export interface iProps {
     children?: React.ReactNode;
 }
 
 const MasterPage: React.FunctionComponent<iProps> = (props: iProps) => {
-    return (<>
-        <MDMainMenu border={MDMenuBorder.Bottom} menuPosition={MDMenuPosition.Relative}
+    return (<MDBox ContentDirection={Direction.Vertical}>
+        <MDMainMenu border={MDMenuBorder.Bottom} menuPosition={MDMenuPosition.Fix}
             menuItems={[{
                 Index: 1,
-                Caption: 'Menu Item 1',
-                ToolTip: 'Menu Item 1',
+                Caption: 'Main',
+                Icon: <MDIcon IconType={IconType.Home} />,
+                URL: '/',
+                MobileVisible: false,
+                TabletVisible: false,
             },
             {
                 Index: 2,
-                Caption: 'Input',
-                ToolTip: 'MD-Input',
-                URL: '/input',
+                Caption: 'About Me',
+                ToolTip: 'About Me',
+                Icon: <MDIcon IconType={IconType.About} />,
+                URL: '/about',
+                MobileVisible: false,
+                TabletVisible: false,
+            }]} />
+        <MDSideBar Left MenuItems={[
+            {
+                Index: 1,
+                Caption: 'Expample 1',
+                ToolTip: 'Expample 1',
+                Icon: <MDIcon IconType={IconType.Design} />,
+            },
+            {
+                Index: 2,
+                Caption: 'Components',
+                ToolTip: 'Components',
+                Icon: <MDIcon IconType={IconType.Library} />,
+                Items: [
+                    {
+                        Index: 20,
+                        Caption: 'Box',
+                        ToolTip: 'MD-Box',
+                        Icon: <MDIcon IconType={IconType.Div} />,
+                        URL: '/Box',
+                    },
+                    {
+                        Index: 21,
+                        Caption: 'Input',
+                        ToolTip: 'MD-Input',
+                        Icon: <MDIcon IconType={IconType.Input} />,
+                        URL: '/input',
+                    },
+                    {
+                        Index: 22,
+                        Caption: 'Check Box List',
+                        ToolTip: 'Check Box',
+                        Icon: <MDIcon IconType={IconType.CheckList} />,
+                        URL: '/CheckBox',
+                    },
+                    {
+                        Index: 23,
+                        Caption: 'Radio Button List',
+                        ToolTip: 'Radio Button',
+                        Icon: <MDIcon IconType={IconType.RadioButton} />,
+                        URL: '/RadioButton',
+                    },
+                    {
+                        Index: 24,
+                        Caption: 'Drop Down Input',
+                        ToolTip: 'Drop Down Input',
+                        Icon: <MDIcon IconType={IconType.Design} />,
+                        URL: '/drop-down-input',
+                    },
+                    {
+                        Index: 25,
+                        Caption: 'Wysiwyg Text Edit',
+                        ToolTip: 'Wysiwyg Text Edit',
+                        Icon: <MDIcon IconType={IconType.Text} />,
+                        URL: '/html-editor',
+                    },
+                    {
+                        Index: 26,
+                        Caption: 'File Drag Drop',
+                        ToolTip: 'File Drag Drop',
+                        Icon: <MDIcon IconType={IconType.FileUpload} />,
+                        URL: '/file-drag-drop',
+                    },
+                    {
+                        Index: 27,
+                        Caption: 'Client Side Grid',
+                        ToolTip: 'Client Side Grid',
+                        Icon: <MDIcon IconType={IconType.Grid} />,
+                        URL: '/Client-Side-Grid',
+                    }
+                ]
             },
             {
                 Index: 3,
-                Caption: 'Drop Down Input',
-                ToolTip: 'Drop Down Input',
-                Icon: <MDIcon IconType={IconType.Design}/>,
-                URL: '/drop-down-input',
-            },
-            {
-                Index: 4,
-                Caption: 'Wysiwyg Text Edit',
-                ToolTip: 'Wysiwyg Text Edit',
-                Icon: <MDIcon IconType={IconType.Text} />,
-                URL: '/html-editor',
-            },
-            {
-                Index: 5,
-                Caption: 'File Drag Drop',
-                ToolTip: 'File Drag Drop',
-                Icon: <MDIcon IconType={IconType.FileUpload}/>,
-                URL: '/file-drag-drop',
-            },
-            {
-                Index: 5,
-                Caption: 'Client Side Grid',
-                ToolTip: 'Client Side Grid',
-                Icon: <MDIcon IconType={IconType.Grid}/>,
-                URL: '/Client-Side-Grid',
+                Caption: 'Expample 2',
+                ToolTip: 'Expample 2',
+                Icon: <MDIcon IconType={IconType.Design} />,
             }]} />
-        {props.children}
-    </>)
+        <MDBox ContentDirection={Direction.Vertical} ContentDistribution={Distribution.Equal} 
+            Style={{ marginTop: '60px'}}>
+            {props.children}
+        </MDBox>
+    </MDBox>)
 }
 
 export default MasterPage;

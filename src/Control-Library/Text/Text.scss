@@ -38,4 +38,14 @@
     &.justify {
         text-align: justify;
     }
+
+    &.vertical-centrer {
+        margin: auto 0;
+    }
+
+    &.unselectable {
+        @import "../-General/Styles/mixins.scss";
+
+        @include unselectable;
+    }
 }

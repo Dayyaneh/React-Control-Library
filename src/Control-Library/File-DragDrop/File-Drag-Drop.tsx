@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import mdFileModel from '../-General/DataModels/FileModel';
 import IconDelete from '../-General/Icon/IconDelete';
 import IconFileUpload from '../-General/Icon/IconFileUpload';
+import MDBox, { ContentAlignment, Direction } from '../Box/Box';
 import MDButton from '../Button/Button';
-import MDContainer, { ContentAlignment, Direction } from '../Container/Container';
 import MDSpinner from '../Spinner/MDSpinner';
 import MDText, { Alignment } from '../Text/Text';
 
@@ -206,10 +206,11 @@ class MDFileDragDrop extends Component<iComponentProp, iComponentState> {
     /*---------------------------------------------------------------------------------------------------------------*/
     /*---------------------------------------------------------------------------------------------------------------*/
     renderFile = (file: mdFileModel, index: number) =>
-        <MDContainer key={index} className='row showing' hAlignment={ContentAlignment.Center} direction={Direction.Horizontal}>
+        <MDBox key={index} ClassName='row showing' ContentHorizontalAlign={ContentAlignment.Center} 
+            ContentDirection={Direction.Horizontal}>
             <MDButton borderLess onClick={() => this.onDeleteChosenFile(file.fileId)}><IconDelete /></MDButton>&nbsp;&nbsp;
             <MDText alignment={Alignment.Left}>{file.fileName}</MDText>
-        </MDContainer>
+        </MDBox>
     /*---------------------------------------------------------------------------------------------------------------*/
     render = () =>
         <div className={['md-file-drag-drop', this.state.dragging === true && this.state.dragCounter !== 0 ? 'dragging' : ''].join(' ')}
@@ -219,24 +220,27 @@ class MDFileDragDrop extends Component<iComponentProp, iComponentState> {
             onDrop={this.onDrop}>
             {
                 !this.state.isLoading && this.state.notificationCaption === '' && this.state.notificationValue === '' &&
-                <MDContainer className='icon-container' hAlignment={ContentAlignment.Center} vAlignment={ContentAlignment.Center}>
+                <MDBox ClassName='icon-container' ContentHorizontalAlign={ContentAlignment.Center} 
+                    ContentVerticalAlign={ContentAlignment.Center}>
                     <MDText large bold>{this.props.placeHolder}</MDText>
                     <IconFileUpload />
 
-                    <MDContainer className='file-list' hAlignment={ContentAlignment.Center} vAlignment={ContentAlignment.Center}>
+                    <MDBox ClassName='file-list' ContentHorizontalAlign={ContentAlignment.Center} 
+                        ContentVerticalAlign={ContentAlignment.Center}>
                         {this.state.files.map((file, index) => this.renderFile(file, index))}
-                    </MDContainer>
-                </MDContainer>
+                    </MDBox>
+                </MDBox>
             }
             {
                 this.state.isLoading && <MDSpinner />
             }
             {
                 this.state.notificationCaption !== '' && this.state.notificationValue !== '' &&
-                <MDContainer className="error" vAlignment={ContentAlignment.Center} hAlignment={ContentAlignment.Center} >
+                <MDBox ClassName="error" ContentVerticalAlign={ContentAlignment.Center} 
+                    ContentHorizontalAlign={ContentAlignment.Center} >
                     <MDText large bold featured>{this.state.notificationCaption}</MDText>
                     <MDText large bold featured>{this.state.notificationValue}</MDText>
-                </MDContainer>
+                </MDBox>
             }
         </div>
     /*---------------------------------------------------------------------------------------------------------------*/

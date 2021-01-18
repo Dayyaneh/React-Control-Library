@@ -1,10 +1,10 @@
 import React from 'react';
+import MDBox from '../../Control-Library/Box/Box';
 
 import MDBulletList from '../../Control-Library/Bullet-List/Bullet-List';
 import MDBulletListItem from '../../Control-Library/Bullet-List/Bullet-List-Item';
 import MDClientSideGrid, { MDDataModel } from '../../Control-Library/Client-Side-Grid/ClientSideGrid';
 import MDCodeBlock from '../../Control-Library/Code-Block/Code-Block';
-import MDContainer from '../../Control-Library/Container/Container';
 import MDIcon, { IconType } from '../../Control-Library/Icon/Icon';
 import MDPageTitle from '../../Control-Library/Page-Title/Page-Title';
 import MDText, { Alignment } from '../../Control-Library/Text/Text';
@@ -63,21 +63,21 @@ const ClientSideGridRoute: React.FunctionComponent<iProps> = (props: iProps) => 
         },];
 
 
-    return (<MDContainer bordered rounded defaultMargin className='page-container'>
+    return (<MDBox Bordered Rounded DefaultMargin ClassName='page-container'>
         <MDPageTitle Title="Client Side Grid" Icon={<MDIcon IconType={IconType.Grid} />} />
-        <MDContainer defaultMargin>
+        <MDBox DefaultMargin>
             <MDText light alignment={Alignment.Justify}>
                 Aute sit ex non pariatur ut ea aliquip laborum. Consequat anim veniam mollit voluptate consectetur tempor deserunt.
                 Lorem amet ad nisi velit et. Mollit nostrud laborum velit incididunt minim Lorem laboris laborum culpa nulla.
                 Excepteur aute fugiat deserunt ex elit commodo voluptate amet officia dolor exercitation. Adipisicing adipisicing laboris dolore nostrud culpa.
                 Aliqua nostrud anim do est. Duis et quis voluptate laboris ea. Est proident sunt ullamco ullamco duis quis.
         </MDText>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText bold large>Example</MDText>
             <MDClientSideGrid DataModel={DataModel} Data={Data}></MDClientSideGrid>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText large bold>Properties</MDText>
             <MDText medium light>For setting up this control there are some options which describe below </MDText>
             <MDBulletList>
@@ -98,12 +98,12 @@ const ClientSideGridRoute: React.FunctionComponent<iProps> = (props: iProps) => 
                     <MDText medium></MDText>
                 </MDBulletListItem>
             </MDBulletList>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText large bold>Sample Code</MDText>
             <MDCodeBlock code='<MDBulletListItem><MDText medium light>Elemet 2</MDText></MDBulletListItem>'></MDCodeBlock>
-        </MDContainer>
-    </MDContainer>)
+        </MDBox>
+    </MDBox>)
 }
 
 export default ClientSideGridRoute;

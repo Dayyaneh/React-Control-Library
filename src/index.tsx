@@ -9,62 +9,88 @@ import {
 import * as serviceWorker from './serviceWorker';
 
 import About from './Routes/About/About';
-import Home from './Routes/Home/Home';
-import NotFound from './Routes/NotFound/NotFound';
+import NotFound from './Routes/Not-Found/Not-Found-Route';
 import Search from './Routes/Search/Search';
 
-import DragDropFileRoute from './Routes/Drag-Drop-File/Drag-Drop-File-Route';
+import MasterPage from './Routes/--MasterPage/MasterPage';
+import MDPageLoader from './Control-Library/Page-Loader/Page-Loader';
 
 import './index.css';
-import InputRoute from './Routes/Input/Input-Route';
-import MasterPage from './Routes/--MasterPage/MasterPage';
-import DropDownInputRoute from './Routes/DropDownInput/DropDownInputRoute';
-import HTMLEditorRoute from './Routes/HTML-Editor/HTM-Editor-Route';
-import ClientSideGridRoute from './Routes/Client-Side-Grid/Client-Side-Grid-Route';
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Home/Home'))} />
+          </MasterPage>
         </Route>
-        <Route path="/search/:id"
-          component={(props: any) => <Search id={props.match.params.id} />}>
-        </Route>
-        <Route path="/file-control">
-          <About />
+        <Route path="/about">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/About/About'))} />
+          </MasterPage>
         </Route>
         <Route path="/file-drag-drop">
           <MasterPage>
-            <DragDropFileRoute />
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Drag-Drop-File/Drag-Drop-File-Route'))} />
           </MasterPage>
         </Route>
         <Route path="/input">
           <MasterPage>
-            <InputRoute />
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Input/Input-Route'))} />
+          </MasterPage>
+        </Route>
+        <Route path="/CheckBox">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Check-Box/Check-Box-Route'))} />
+          </MasterPage>
+        </Route>
+        <Route path="/RadioButton">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Radio-Button/Radio-Button-Route'))} />
+          </MasterPage>
+        </Route>
+        <Route path="/box">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Box/Box-Route'))} />
+          </MasterPage>
+        </Route>
+        <Route path="/box2">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Box/Box-Route2'))} />
+          </MasterPage>
+        </Route>
+        <Route path="/box3">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Box/Box-Route3'))} />
           </MasterPage>
         </Route>
         <Route path="/drop-down-input">
           <MasterPage>
-            <DropDownInputRoute />
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Drop-Down-Input/Drop-Down-Input-Route'))} />
           </MasterPage>
         </Route>
         <Route path="/html-editor">
           <MasterPage>
-            <HTMLEditorRoute />
+            <MDPageLoader Page={React.lazy(() => import('./Routes/HTML-Editor/HTM-Editor-Route'))} />
           </MasterPage>
         </Route>
         <Route path="/Client-Side-Grid">
           <MasterPage>
-            <ClientSideGridRoute />
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Client-Side-Grid/Client-Side-Grid-Route'))} />
           </MasterPage>
         </Route>
-        <Route path="/about">
-          <About />
+        <Route path="/Image">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Image/Image-Route'))} />
+          </MasterPage>
         </Route>
         <Route path="*">
-          <NotFound />
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Not-Found/Not-Found-Route'))} />
+          </MasterPage>
         </Route>
       </Switch>
     </Router>

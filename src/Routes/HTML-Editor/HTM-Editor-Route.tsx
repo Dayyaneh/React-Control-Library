@@ -1,10 +1,9 @@
 import React from 'react';
+import MDBox from '../../Control-Library/Box/Box';
 
-import IconAddFile from '../../Control-Library/-General/Icon/IconAddFile';
 import MDBulletList from '../../Control-Library/Bullet-List/Bullet-List';
 import MDBulletListItem from '../../Control-Library/Bullet-List/Bullet-List-Item';
 import MDCodeBlock from '../../Control-Library/Code-Block/Code-Block';
-import MDContainer, { ContentAlignment, Direction } from '../../Control-Library/Container/Container';
 import MDHTMLEditor from '../../Control-Library/HTML-Editor/HTML-Editor';
 import MDIcon, { IconType } from '../../Control-Library/Icon/Icon';
 import MDPageTitle from '../../Control-Library/Page-Title/Page-Title';
@@ -15,21 +14,21 @@ export interface iProps {
 }
 
 const HTMLEditorRoute: React.FunctionComponent<iProps> = (props: iProps) => {
-    return (<MDContainer bordered rounded defaultMargin className='page-container'>
+    return (<MDBox Bordered Rounded DefaultMargin ClassName='page-container'>
         <MDPageTitle Title="Wysiwyg Text Edit" Icon={<MDIcon IconType={IconType.Text} />} />
-        <MDContainer defaultMargin>
+        <MDBox DefaultMargin>
             <MDText light alignment={Alignment.Justify}>
                 Aute sit ex non pariatur ut ea aliquip laborum. Consequat anim veniam mollit voluptate consectetur tempor deserunt.
                 Lorem amet ad nisi velit et. Mollit nostrud laborum velit incididunt minim Lorem laboris laborum culpa nulla.
                 Excepteur aute fugiat deserunt ex elit commodo voluptate amet officia dolor exercitation. Adipisicing adipisicing laboris dolore nostrud culpa.
                 Aliqua nostrud anim do est. Duis et quis voluptate laboris ea. Est proident sunt ullamco ullamco duis quis.
         </MDText>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText bold large>Example</MDText>
             <MDHTMLEditor></MDHTMLEditor>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText large bold>Properties</MDText>
             <MDText medium light>For setting up this control there are some options which describe below </MDText>
             <MDBulletList>
@@ -50,12 +49,12 @@ const HTMLEditorRoute: React.FunctionComponent<iProps> = (props: iProps) => {
                     <MDText medium></MDText>
                 </MDBulletListItem>
             </MDBulletList>
-        </MDContainer>
-        <MDContainer defaultMargin>
+        </MDBox>
+        <MDBox DefaultMargin>
             <MDText large bold>Sample Code</MDText>
             <MDCodeBlock code='<MDBulletListItem><MDText medium light>Elemet 2</MDText></MDBulletListItem>'></MDCodeBlock>
-        </MDContainer>
-    </MDContainer>)
+        </MDBox>
+    </MDBox>)
 }
 
 export default HTMLEditorRoute;

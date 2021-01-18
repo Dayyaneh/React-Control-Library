@@ -4,8 +4,9 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    margin: 2px 2px 15px 2px;
+    margin: 2px 2px 2px 2px;
     width: calc(100% - 4px);
+    min-width: 200px;
     height: 45px;
     border: 1px solid $general-border-color;
     border-radius: $general-border-radius;
@@ -133,7 +134,8 @@
 
     .error-message {
         position: absolute;
-        top: 45px;
-        left: 5px;
+        top: 1px;
+        right: 15px;
+        margin: 0;
     }
 }

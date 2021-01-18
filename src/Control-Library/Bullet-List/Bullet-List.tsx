@@ -1,7 +1,4 @@
 import React from 'react';
-import IconDelete from '../-General/Icon/IconDelete';
-import MDText from '../Text/Text';
-import MDBulletListItem from './Bullet-List-Item';
 
 import './Bullet-List.scss';
 

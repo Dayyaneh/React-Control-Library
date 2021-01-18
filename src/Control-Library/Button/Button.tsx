@@ -12,7 +12,7 @@ interface iComponentProps {
 }
 
 const MDButton: FunctionComponent<iComponentProps> = (props: iComponentProps) => {
-    return (<button disabled className={['md-button', 
+    return (<button className={['md-button', 
         props.outline ? 'outline' : '', 
         props.featured ? 'featured' : '', 
         props.borderLess ? 'border-less' : '',
