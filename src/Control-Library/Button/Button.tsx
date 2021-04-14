@@ -2,23 +2,23 @@ import React, { FunctionComponent } from 'react';
 import './Button.scss';
 
 interface iComponentProps {
-    onClick?: Function,
+    OnClick?: Function,
     children?: React.ReactNode;
-    outline?: boolean;
-    borderLess?: boolean;
-    featured?: boolean;
-    selected?: boolean;
-    entireContainer?: boolean;
+    Outline?: boolean | false;
+    BorderLess?: boolean | false;
+    Featured?: boolean | false;
+    Selected?: boolean | false;
+    DefaultMargin?: boolean | false;    
 }
 
 const MDButton: FunctionComponent<iComponentProps> = (props: iComponentProps) => {
     return (<button className={['md-button', 
-        props.outline ? 'outline' : '', 
-        props.featured ? 'featured' : '', 
-        props.borderLess ? 'border-less' : '',
-        props.entireContainer ? 'entire-container' : '',
-        props.selected ? 'selected' : '' ].join(' ')} 
-        onClick={() => { props.onClick && props.onClick() }}>
+        props.Outline ? 'outline' : '', 
+        props.Featured ? 'featured' : '', 
+        props.BorderLess ? 'border-less' : '',
+        props.DefaultMargin ? 'default-margin' : '',         
+        props.Selected ? 'selected' : '' ].join(' ')} 
+        onClick={() => { props.OnClick && props.OnClick() }}>
         {props.children}
     </button>)
 }

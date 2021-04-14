@@ -1,6 +1,59 @@
+@import '../Styles/variables.scss';
+
 @mixin unselectable {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+@mixin default-margin {
+    margin: $general-default-margin;
+
+    @media screen and (max-width: $general-tablet-max-width) and (min-width: $general-tablet-min-width) {
+        margin: $general-tablet-default-margin;
+    }
+
+    @media screen and (max-width: $general-mobile-max-width) {
+        margin: $general-mobile-default-margin;
+    }
+}
+
+@mixin default-padding {
+    padding: $general-default-padding;
+
+    @media screen and (max-width: $general-tablet-max-width) and (min-width: $general-tablet-min-width) {
+        padding: $general-tablet-default-padding;
+    }
+
+    @media screen and (max-width: $general-mobile-max-width) {
+        padding: $general-mobile-default-padding;
+    }
+}
+
+@mixin border-less-button {
+    text-decoration: none;
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    background-clip: border-box;
+    outline: none;
+    color: $general-text-color;
+    border: none;
+    background-color: transparent;
+    border-top-right-radius: $general-border-radius;
+    border-bottom-right-radius: $general-border-radius;
+
+    &:hover:not(:disabled) {
+        font-weight: bold;
+        background: $general-hover-color;
+        outline: none;
+
+        svg {        
+            path {
+                fill: darken($general-icon-color, 20%);
+            }
+        }
+    }
 }

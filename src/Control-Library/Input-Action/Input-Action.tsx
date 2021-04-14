@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
+import classNames from '../-General/General';
 
 import MDButton from '../Button/Button';
 import MDIcon, { IconType } from '../Icon/Icon';
 import MDText from '../Text/Text';
 
-import './input.scss';
+import './Input-Action.scss';
 
 export enum InputMode {
     Text = 'text',
@@ -29,10 +30,12 @@ interface iProps {
     IconSpanLocation?: IconSpanLocation;
     Icon?: React.ReactElement;
     FormatErrorMessage?: string;
+    DefaultMargin?: boolean | false;
     OnChange?(value: string): void;
+    OnAction?(): void;
 }
 
-const MDInput: React.FunctionComponent<iProps> = (props: iProps) => {
+const MDInputAction: React.FunctionComponent<iProps> = (props: iProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [value, setValue] = useState(props.Value ? props.Value : '');
     const [isFocus, setIsFocus] = useState(false);
@@ -124,15 +127,23 @@ const MDInput: React.FunctionComponent<iProps> = (props: iProps) => {
         setIsFocus(false);
     }
 
-    return (<div className={['md-input', props.IconSpanLocation === IconSpanLocation.Right ? 'right' : ''].join(' ')}
+    const OnButtonClick = () => {
+        if (props.OnAction){
+            props.OnAction();
+        }
+    }
+
+    return (<div className={classNames(['md-input-action',
+                                        props.DefaultMargin ? 'default-margin' : '', 
+                                        props.IconSpanLocation === IconSpanLocation.Right ? 'right' : ''])}
         onClick={onGetFocus}>
         <div className='input-container'>
             <div className={['place-holder', value || isFocus ? 'focus' : ''].join(' ')}>
                 {props.IsRequiered && <MDIcon IconType={IconType.Circle}></MDIcon>}
                 <p>{props.PlaceHolder}</p>
-                {value !== '' && <MDButton Outline BorderLess OnClick={() => { setValue('') }}>
+                {value !== '' && <button onClick={() => { setValue('') }}>
                     <MDIcon IconType={IconType.Delete} />
-                </MDButton>}
+                </button>}
             </div>
             <input ref={inputRef}
                 type={getInputType()}
@@ -142,15 +153,18 @@ const MDInput: React.FunctionComponent<iProps> = (props: iProps) => {
                 onChange={OnChangeText}
                 onBlur={OnLostFocus} />
         </div>
-        {
-            props.Icon && <div className={['icon-span', props.IconSpanLocation === IconSpanLocation.Right ? 'right' : ''].join(' ')}>
-                {props.Icon}
-            </div>
-        }
+
+        <div className={['button-container', props.IconSpanLocation === IconSpanLocation.Right ? 'right' : ''].join(' ')}>
+            <button onClick={OnButtonClick}>
+            {props.Icon}
+            </button>
+            
+        </div>
+
         {
             <MDText light small className='error-message' featured>{error}</MDText>
         }
     </div>)
 }
 
-export default MDInput;
+export default MDInputAction;

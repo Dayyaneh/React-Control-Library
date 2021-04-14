@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 
-import MDFileDragDrop from "../../Control-Library/File-DragDrop/File-Drag-Drop";
+import MDFileDragDrop from "../../Control-Library/Advanced-Controls/File-DragDrop/File-Drag-Drop";
 import MDPageTitle from "../../Control-Library/Page-Title/Page-Title";
 import MDText, { Alignment } from "../../Control-Library/Text/Text";
 import MDBulletList from "../../Control-Library/Bullet-List/Bullet-List";

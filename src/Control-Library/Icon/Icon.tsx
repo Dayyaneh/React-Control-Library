@@ -36,6 +36,7 @@ export enum IconType {
     Library = 'Library',
     Key = 'Key',
     Div = 'Div',
+    Button = 'button',
 }
 
 interface iProps {
@@ -182,6 +183,10 @@ const MDIcon: React.FunctionComponent<iProps> = (props: iProps) => {
         }
         case IconType.Div: {
             const Icon = require('../-General/Icon/IconDiv');
+            return (<Icon.default />)
+        }
+        case IconType.Button: {
+            const Icon = require('../-General/Icon/IconButton');
             return (<Icon.default />)
         }
         default: return (<></>)

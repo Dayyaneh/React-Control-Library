@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react'
-import mdFileModel from '../-General/DataModels/FileModel';
-import IconDelete from '../-General/Icon/IconDelete';
-import IconFileUpload from '../-General/Icon/IconFileUpload';
-import MDBox, { ContentAlignment, Direction } from '../Box/Box';
-import MDButton from '../Button/Button';
-import MDSpinner from '../Spinner/MDSpinner';
-import MDText, { Alignment } from '../Text/Text';
+import mdFileModel from '../../-General/DataModels/FileModel';
+import IconDelete from '../../-General/Icon/IconDelete';
+import IconFileUpload from '../../-General/Icon/IconFileUpload';
+import MDBox, { ContentAlignment, Direction } from '../../Box/Box';
+import MDButton from '../../Button/Button';
+import MDSpinner from '../../Spinner/MDSpinner';
+import MDText, { Alignment } from '../../Text/Text';
 
 import './File-Drag-Drop.scss';
 
@@ -208,7 +208,7 @@ class MDFileDragDrop extends Component<iComponentProp, iComponentState> {
     renderFile = (file: mdFileModel, index: number) =>
         <MDBox key={index} ClassName='row showing' ContentHorizontalAlign={ContentAlignment.Center} 
             ContentDirection={Direction.Horizontal}>
-            <MDButton borderLess onClick={() => this.onDeleteChosenFile(file.fileId)}><IconDelete /></MDButton>&nbsp;&nbsp;
+            <MDButton BorderLess OnClick={() => this.onDeleteChosenFile(file.fileId)}><IconDelete /></MDButton>&nbsp;&nbsp;
             <MDText alignment={Alignment.Left}>{file.fileName}</MDText>
         </MDBox>
     /*---------------------------------------------------------------------------------------------------------------*/

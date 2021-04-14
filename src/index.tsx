@@ -37,9 +37,24 @@ ReactDOM.render(
             <MDPageLoader Page={React.lazy(() => import('./Routes/Drag-Drop-File/Drag-Drop-File-Route'))} />
           </MasterPage>
         </Route>
+        <Route path="/file-control">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/File-Control/File-Control-Route'))} />
+          </MasterPage>
+        </Route>
         <Route path="/input">
           <MasterPage>
             <MDPageLoader Page={React.lazy(() => import('./Routes/Input/Input-Route'))} />
+          </MasterPage>
+        </Route>
+        <Route path="/input-action">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Input-Action/Input-Action-Route'))} />
+          </MasterPage>
+        </Route>
+        <Route path="/button">
+          <MasterPage>
+            <MDPageLoader Page={React.lazy(() => import('./Routes/Button/Button-Route'))} />
           </MasterPage>
         </Route>
         <Route path="/CheckBox">

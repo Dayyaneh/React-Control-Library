@@ -2,19 +2,19 @@ import React, { FunctionComponent } from 'react';
 import MDBox, { Direction, Distribution } from '../../Control-Library/Box/Box';
 import MDBulletList from '../../Control-Library/Bullet-List/Bullet-List';
 import MDBulletListItem from '../../Control-Library/Bullet-List/Bullet-List-Item';
+import MDButton from '../../Control-Library/Button/Button';
 import MDCodeBlock from '../../Control-Library/Code-Block/Code-Block';
 import MDIcon, { IconType } from '../../Control-Library/Icon/Icon';
-import MDInput, { IconSpanLocation, InputMode } from '../../Control-Library/Input/Input';
 import MDPageTitle from '../../Control-Library/Page-Title/Page-Title';
 import MDText, { Alignment } from '../../Control-Library/Text/Text';
 
-const InputRoute: FunctionComponent = () => {
+const ButtonRoute: FunctionComponent = () => {
     const OnLastNameChange = (value: string) => {
         console.log(value);
     }
 
     return (<MDBox Bordered Rounded DefaultMargin ContentDirection={Direction.Vertical}>
-        <MDPageTitle Title="Input" Icon={<MDIcon IconType={IconType.Input} />} />
+        <MDPageTitle Title="Button" Icon={<MDIcon IconType={IconType.Button} />} />
         <MDBox DefaultMargin DefaultPadding>
             <MDText light alignment={Alignment.Justify}>Ex enim cupidatat deserunt et consectetur labore fugiat deserunt nostrud velit veniam nulla.
             Tempor do amet officia irure adipisicing tempor incididunt duis esse. Est in id consectetur do ad culpa minim veniam culpa veniam nisi enim incididunt.
@@ -32,32 +32,44 @@ const InputRoute: FunctionComponent = () => {
                 <MDBox WholeWidth
                     DefaultPadding
                     ContentDirection={Direction.Horizontal}
-                    ContentDistribution={Distribution.Equal}
+                    ContentDistribution={Distribution.Equal}                    
                     Mobile={{ContentDirection:Direction.Vertical, DefaultPadding: false}}>
-                    <MDInput PlaceHolder='Enter your lirstname' />
-                    <MDInput PlaceHolder='Enter your lastname' IsRequiered OnChange={OnLastNameChange} />
-                    <MDInput PlaceHolder='Enter your Age' InputMode={InputMode.Number} />
-                </MDBox>
-                <MDBox WholeWidth 
-                    DefaultPadding
-                    ContentDirection={Direction.Horizontal}
-                    ContentDistribution={Distribution.Equal}
-                    Mobile={{ContentDirection:Direction.Vertical, DefaultPadding: false}}>
-                    <MDInput PlaceHolder='Website URL' InputMode={InputMode.URL} />
-                    <MDInput PlaceHolder='Email Address' InputMode={InputMode.Email} />
-                    <MDInput PlaceHolder='Phone number' InputMode={InputMode.Phone} />
+                        <MDButton DefaultMargin>Normal</MDButton>
+                        <MDButton DefaultMargin Outline>Outline</MDButton>
+                        <MDButton DefaultMargin BorderLess>Border Less</MDButton>
+                        <MDButton DefaultMargin Featured>Featured</MDButton>
+                        <MDButton DefaultMargin Selected>Selected</MDButton>
                 </MDBox>
                 <MDBox WholeWidth
                     DefaultPadding
                     ContentDirection={Direction.Horizontal}
-                    ContentDistribution={Distribution.Equal}                                    
+                    ContentDistribution={Distribution.Equal}                    
                     Mobile={{ContentDirection:Direction.Vertical, DefaultPadding: false}}>
-                    <MDInput PlaceHolder='Decimal number' InputMode={InputMode.Decimal} />
-                    <MDInput PlaceHolder='This is an example' Icon={<MDIcon IconType={IconType.Delete} />}></MDInput>
-                    <MDInput InputMode={InputMode.Password} 
-                        PlaceHolder='Enter Your Password' 
-                        IconSpanLocation={IconSpanLocation.Right} 
-                        Icon={<MDIcon IconType={IconType.Key} />}></MDInput>
+                        <MDButton DefaultMargin><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Outline><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin BorderLess><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Featured><MDIcon IconType={IconType.Home}/></MDButton>
+
+                        <MDButton DefaultMargin><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Outline><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin BorderLess><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Featured><MDIcon IconType={IconType.Home}/></MDButton>
+
+                        <MDButton DefaultMargin><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Outline><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin BorderLess><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Featured><MDIcon IconType={IconType.Home}/></MDButton>
+
+                        <MDButton DefaultMargin><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Outline><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin BorderLess><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Featured><MDIcon IconType={IconType.Home}/></MDButton>
+
+                        <MDButton DefaultMargin><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Outline><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin BorderLess><MDIcon IconType={IconType.Home}/></MDButton>
+                        <MDButton DefaultMargin Featured><MDIcon IconType={IconType.Home}/></MDButton>
+
                 </MDBox>
             </MDBox>
         </MDBox>
@@ -100,4 +112,4 @@ const InputRoute: FunctionComponent = () => {
     )
 }
 
-export default InputRoute;
+export default ButtonRoute;

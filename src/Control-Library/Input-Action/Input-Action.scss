@@ -1,0 +1,148 @@
+@import "../-General/Styles/variables.scss";
+@import '../-General/Styles/mixins.scss';
+
+.md-input-action {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+    width: calc(100% - 4px);
+    min-width: 200px;
+    height: $general-control-height;
+    border-radius: $general-border-radius;
+    background-color: $general-background-color;
+    box-shadow: 0 0 0 1px $general-border-color;
+    box-sizing: border-box;
+
+    &.default-margin {
+        @include default-margin;
+    }
+
+    &.right {
+        flex-direction: row-reverse;
+    }
+
+    .input-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+
+        .place-holder {
+            position: absolute;
+            top: 11px;
+            left: 5px;
+            width: calc(100% - 5px);
+            height: 20px;
+            display: flex;
+            z-index: 1;
+            transition: all 0.15s linear;
+
+            &.focus {
+                top: 1px;
+                height: 12px;
+                transition: all 0.15s linear;
+
+                p {
+                    font-size: $general-small-font-size;
+                }
+
+                & > svg {
+                    width: 8px;
+                }
+            }
+
+            p {
+                width: 100%;
+                color: $general-text-color;
+                white-space: nowrap;
+                font-size: $general-normal-font-size;
+                font-weight: lighter;
+                z-index: 1;
+                transition: all 0.15s linear;
+            }
+
+            button {
+                position: absolute;
+                display: flex;
+                top: 2px;
+                right: 3px;
+                height: 10px;
+                width: 10px;
+                padding: 0;
+                z-index: 1;
+
+                @include border-less-button;
+    
+                svg {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+
+
+
+        input {
+            position: absolute;
+            top: 0px;
+            left: 2px;
+            bottom: 0;
+            width: calc(100% - 2px);
+            box-sizing: border-box;
+            background-color: $general-background-color;
+            color: $general-text-color;
+            font-size: $general-normal-font-size;
+            outline: none;
+            border: none;
+            border-radius: $general-border-radius;
+
+            &.focus {
+                top: 12px;
+                transition: all 0.15s linear;
+            }
+        }
+    }
+
+    .button-container {
+        background-color: $general-background-color;
+        height: 100%;
+        width: 30px;
+        border-top-right-radius: $general-border-radius;
+        border-bottom-right-radius: $general-border-radius;
+        border-left: 1px solid $general-border-color;
+
+        button {
+            height: 100%;
+            width: 100%;            
+            @include border-less-button;
+
+            svg {
+                height: 100%;
+                width: 100%;
+    
+                path {
+                    fill: $general-icon-color;
+                }
+            }
+
+
+        }
+
+        &.right {
+            border-top-left-radius: $general-border-radius;
+            border-bottom-left-radius: $general-border-radius;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right: 1px solid $general-border-color;
+            border-left: none;
+        }
+    }
+
+    .error-message {
+        position: absolute;
+        top: 1px;
+        right: 35px;
+        margin: 0;
+    }
+}

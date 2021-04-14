@@ -37,8 +37,8 @@ const MasterPage: React.FunctionComponent<iProps> = (props: iProps) => {
             },
             {
                 Index: 2,
-                Caption: 'Components',
-                ToolTip: 'Components',
+                Caption: 'Basic Controls',
+                ToolTip: 'Basic Controls',
                 Icon: <MDIcon IconType={IconType.Library} />,
                 Items: [
                     {
@@ -57,41 +57,63 @@ const MasterPage: React.FunctionComponent<iProps> = (props: iProps) => {
                     },
                     {
                         Index: 22,
+                        Caption: 'Input Action',
+                        ToolTip: 'MD-Input-Action',
+                        Icon: <MDIcon IconType={IconType.Input} />,
+                        URL: '/input-action',
+                    },
+                    {
+                        Index: 23,
+                        Caption: 'Button',
+                        ToolTip: 'MD-Button',
+                        Icon: <MDIcon IconType={IconType.Button} />,
+                        URL: '/button',
+                    },
+                    {
+                        Index: 24,
                         Caption: 'Check Box List',
                         ToolTip: 'Check Box',
                         Icon: <MDIcon IconType={IconType.CheckList} />,
                         URL: '/CheckBox',
                     },
                     {
-                        Index: 23,
+                        Index: 25,
                         Caption: 'Radio Button List',
                         ToolTip: 'Radio Button',
                         Icon: <MDIcon IconType={IconType.RadioButton} />,
                         URL: '/RadioButton',
                     },
                     {
-                        Index: 24,
+                        Index: 26,
                         Caption: 'Drop Down Input',
                         ToolTip: 'Drop Down Input',
                         Icon: <MDIcon IconType={IconType.Design} />,
                         URL: '/drop-down-input',
-                    },
+                    }
+                ]
+            },
+            {
+                Index: 3,
+                Caption: 'Advance Controls',
+                ToolTip: 'Advance Controls',
+                Icon: <MDIcon IconType={IconType.Library} />,
+                Items: [
                     {
-                        Index: 25,
+                        Index: 31,
                         Caption: 'Wysiwyg Text Edit',
                         ToolTip: 'Wysiwyg Text Edit',
                         Icon: <MDIcon IconType={IconType.Text} />,
                         URL: '/html-editor',
                     },
                     {
-                        Index: 26,
+                        Index: 32,
                         Caption: 'File Drag Drop',
                         ToolTip: 'File Drag Drop',
                         Icon: <MDIcon IconType={IconType.FileUpload} />,
                         URL: '/file-drag-drop',
                     },
                     {
-                        Index: 27,
+                        Index: 33,
                         Caption: 'Client Side Grid',
                         ToolTip: 'Client Side Grid',
                         Icon: <MDIcon IconType={IconType.Grid} />,
@@ -100,7 +122,7 @@ const MasterPage: React.FunctionComponent<iProps> = (props: iProps) => {
                 ]
             },
             {
-                Index: 3,
+                Index: 4,
                 Caption: 'Expample 2',
                 ToolTip: 'Expample 2',
                 Icon: <MDIcon IconType={IconType.Design} />,

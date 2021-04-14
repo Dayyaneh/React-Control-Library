@@ -4,7 +4,7 @@ import MDBox from '../../Control-Library/Box/Box';
 import MDBulletList from '../../Control-Library/Bullet-List/Bullet-List';
 import MDBulletListItem from '../../Control-Library/Bullet-List/Bullet-List-Item';
 import MDCodeBlock from '../../Control-Library/Code-Block/Code-Block';
-import MDHTMLEditor from '../../Control-Library/HTML-Editor/HTML-Editor';
+import MDHTMLEditor from '../../Control-Library/Advanced-Controls/HTML-Editor/HTML-Editor';
 import MDIcon, { IconType } from '../../Control-Library/Icon/Icon';
 import MDPageTitle from '../../Control-Library/Page-Title/Page-Title';
 import MDText, { Alignment } from '../../Control-Library/Text/Text';

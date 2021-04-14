@@ -35,13 +35,13 @@ $general-color-II: #e47e4f;
 $general-base-background-color: $general-base-color;
 $general-base-border-color: darken($general-base-color, 5%);
 
-$general-background-color: lighten(desaturate($general-color-I, 10%), 60%);
+$general-background-color: darken(lighten(desaturate($general-color-I, 10%), 60%), 2%);
 $general-border-color: lighten($general-color-I, 35%);
 $general-text-color: $general-color-I;
 $general-icon-color: $general-color-I;
 $general-place-holder: lighten(desaturate($general-color-I, 10%), 30%);
 $general-disabled-color: lighten(desaturate($general-color-I, 10%), 30%);
-$general-hover-color: darken(saturate($general-color-I, 10%), 5%);
+$general-hover-color: lighten($general-color-I, 35%);
 
 $general-featured-background-color: lighten($general-color-II, 32%);
 $general-featured-border-color: $general-color-II;
@@ -49,4 +49,4 @@ $general-featured-text-color: darken($general-color-II, 20%);
 $general-featured-icon-color: $general-color-II;
 $general-featured-place-holder: lighten(desaturate($general-color-II, 10%), 30%);
 $general-featured-disabled-color: lighten(desaturate($general-color-II, 10%), 30%);
-$general-featured-hover-color: lighten(saturate($general-color-II, 10%), 50%);
+$general-featured-hover-color: lighten($general-color-II, 35%);

@@ -1,16 +1,24 @@
-import React, { FunctionComponent } from "react";
-import MDBox, { ContentAlignment, Direction, Distribution } from "../../Control-Library/Box/Box";
-import MDBulletList from "../../Control-Library/Bullet-List/Bullet-List";
-import MDBulletListItem from "../../Control-Library/Bullet-List/Bullet-List-Item";
-import MDCodeBlock from "../../Control-Library/Code-Block/Code-Block";
-import MDFileControl from "../../Control-Library/Advanced-Controls/File-Control/File-Control";
-import MDIcon, { IconType } from "../../Control-Library/Icon/Icon";
-import MDPageTitle from "../../Control-Library/Page-Title/Page-Title";
-import MDText, { Alignment } from "../../Control-Library/Text/Text";
+import React, { FunctionComponent } from 'react';
+import MDBox, { Direction, Distribution } from '../../Control-Library/Box/Box';
+import MDBulletList from '../../Control-Library/Bullet-List/Bullet-List';
+import MDBulletListItem from '../../Control-Library/Bullet-List/Bullet-List-Item';
+import MDCodeBlock from '../../Control-Library/Code-Block/Code-Block';
+import MDIcon, { IconType } from '../../Control-Library/Icon/Icon';
+import MDInputAction, { IconSpanLocation, InputMode } from '../../Control-Library/Input-Action/Input-Action';
+import MDPageTitle from '../../Control-Library/Page-Title/Page-Title';
+import MDText, { Alignment } from '../../Control-Library/Text/Text';
 
-const FileControlRoute: FunctionComponent = () => {
+const InputActionRoute: FunctionComponent = () => {
+    const OnLastNameChange = (value: string) => {
+        console.log(value);
+    }
+
+    const OnAction = () => {
+        console.log("Action Click");
+    }
+
     return (<MDBox Bordered Rounded DefaultMargin ContentDirection={Direction.Vertical}>
-        <MDPageTitle Title="Input" Icon={<MDIcon IconType={IconType.Input} />} />
+        <MDPageTitle Title="Input Action" Icon={<MDIcon IconType={IconType.Input} />} />
         <MDBox DefaultMargin DefaultPadding>
             <MDText light alignment={Alignment.Justify}>Ex enim cupidatat deserunt et consectetur labore fugiat deserunt nostrud velit veniam nulla.
             Tempor do amet officia irure adipisicing tempor incididunt duis esse. Est in id consectetur do ad culpa minim veniam culpa veniam nisi enim incididunt.
@@ -23,28 +31,36 @@ const FileControlRoute: FunctionComponent = () => {
         <MDBox ContentDirection={Direction.Vertical} DefaultMargin DefaultPadding>
             <MDText bold large>Example</MDText>
             <MDBox Bordered Rounded
-                ContentDirection={Direction.Vertical}
-                ContentHorizontalAlign={ContentAlignment.Center}
-                ContentDistribution={Distribution.Equal}
-                Mobile={{ Bordered: false }}>
-                <MDBox ContentDirection={Direction.Horizontal}
-                       ContentHorizontalAlign={ContentAlignment.Center}
-                       ContentDistribution={Distribution.Division} WholeWidth>
-                    <MDBox DefaultPadding
-                        Division='1/3'
-                        Mobile={{ ContentDirection: Direction.Vertical, DefaultPadding: false }}>
-                        <MDFileControl PlaceHolder='Choose your file' />
-                    </MDBox>
+                ContentDirection={Direction.Vertical}                
+                Mobile={{Bordered: false}}>
+                <MDBox WholeWidth
+                    DefaultPadding
+                    ContentDirection={Direction.Horizontal}
+                    ContentDistribution={Distribution.Equal}
+                    Mobile={{ContentDirection:Direction.Vertical, DefaultPadding: false}}>
+                    <MDInputAction PlaceHolder='Enter your lirstname' DefaultMargin OnAction={OnAction} />
+                    <MDInputAction PlaceHolder='Enter your lastname' DefaultMargin IsRequiered OnChange={OnLastNameChange} />
+                    <MDInputAction PlaceHolder='Enter your Age' DefaultMargin InputMode={InputMode.Number} />
                 </MDBox>
-                <MDBox ContentDirection={Direction.Horizontal}
-                       ContentHorizontalAlign={ContentAlignment.Center}
-                       ContentDistribution={Distribution.Division}
-                       WholeWidth>
-                    <MDBox DefaultPadding
-                        Division='1/3'
-                        Mobile={{ ContentDirection: Direction.Vertical, DefaultPadding: false }}>
-                        <MDFileControl PlaceHolder='Choose your file' IsMultiple />
-                    </MDBox>
+                <MDBox WholeWidth 
+                    DefaultPadding
+                    ContentDirection={Direction.Horizontal}
+                    ContentDistribution={Distribution.Equal}
+                    Mobile={{ContentDirection:Direction.Vertical, DefaultPadding: false}}>
+                    <MDInputAction PlaceHolder='Website URL' DefaultMargin InputMode={InputMode.URL} />
+                    <MDInputAction PlaceHolder='Email Address' DefaultMargin InputMode={InputMode.Email} />
+                    <MDInputAction PlaceHolder='Phone number' DefaultMargin InputMode={InputMode.Phone} />
+                </MDBox>
+                <MDBox WholeWidth
+                    DefaultPadding
+                    ContentDirection={Direction.Horizontal}
+                    ContentDistribution={Distribution.Equal}                                    
+                    Mobile={{ContentDirection:Direction.Vertical, DefaultPadding: false}}>
+                    <MDInputAction PlaceHolder='Decimal number' DefaultMargin InputMode={InputMode.Decimal} />
+                    <MDInputAction PlaceHolder='This is an example' DefaultMargin Icon={<MDIcon IconType={IconType.Delete} />} />
+                    <MDInputAction PlaceHolder='Enter Your Password' DefaultMargin InputMode={InputMode.Password}                         
+                        IconSpanLocation={IconSpanLocation.Right} 
+                        Icon={<MDIcon IconType={IconType.Key} />} />
                 </MDBox>
             </MDBox>
         </MDBox>
@@ -86,4 +102,5 @@ const FileControlRoute: FunctionComponent = () => {
     </MDBox>
     )
 }
-export default FileControlRoute;
+
+export default InputActionRoute;

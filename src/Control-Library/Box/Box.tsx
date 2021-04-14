@@ -157,69 +157,6 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
         return '';
     }
     /*-------------------------------------------------------------------------------------------*/
-    const getContentVerticalAlignClassName = (): string => {
-        let direction = props.ContentDirection;
-        direction = isMobile && props.Mobile?.ContentDirection ? props.Mobile?.ContentDirection : direction;
-        direction = isTablet && props.Tablet?.ContentDirection ? props.Tablet?.ContentDirection : direction;
-
-        if (isTablet && props.Tablet?.ContentVerticalAlign) {
-            if (props.Tablet?.ContentVerticalAlign === ContentAlignment.Start)
-                return direction === Direction.Vertical || !direction ? 'horizontal-start' : 'vertical-start';
-            else if (props.Tablet?.ContentVerticalAlign === ContentAlignment.Center)
-                return direction === Direction.Vertical || !direction ? 'horizontal-start' : 'vertical-start';
-            else if (props.Tablet?.ContentVerticalAlign === ContentAlignment.End)
-                return direction === Direction.Vertical || !direction ? 'horizontal-start' : 'vertical-start';
-        } else if (isMobile && props.Mobile?.ContentVerticalAlign) {
-            if (props.Mobile?.ContentVerticalAlign === ContentAlignment.Start)
-                return direction === Direction.Vertical || !direction ? 'horizontal-start' : 'vertical-start';
-            else if (props.Mobile?.ContentVerticalAlign === ContentAlignment.Center)
-                return direction === Direction.Vertical || !direction ? 'horizontal-start' : 'vertical-start';
-            else if (props.Mobile?.ContentVerticalAlign === ContentAlignment.End)
-                return direction === Direction.Vertical || !direction ? 'horizontal-start' : 'vertical-start';
-        }
-
-        if (props.ContentVerticalAlign === ContentAlignment.Start)
-            return direction === Direction.Vertical || !direction ? 'horizontal-start' : 'vertical-start';
-        else if (props.ContentVerticalAlign === ContentAlignment.Center)
-            return direction === Direction.Vertical || !direction ? 'horizontal-center' : 'vertical-center';
-        else if (props.ContentVerticalAlign === ContentAlignment.End)
-            return direction === Direction.Vertical || !direction ? 'horizontal-end' : 'vertical-end';
-
-        return '';
-    }
-
-    const getContentHorizontalAlignClassName = (): string => {
-        let direction = props.ContentDirection;
-        direction = isMobile && props.Mobile?.ContentDirection ? props.Mobile?.ContentDirection : direction;
-        direction = isTablet && props.Tablet?.ContentDirection ? props.Tablet?.ContentDirection : direction;
-
-        if (isTablet) {
-            if (props.Tablet?.ContentHorizontalAlign === ContentAlignment.Start)
-                return direction === Direction.Vertical || !direction ? 'vertical-start' : 'horizontal-start';
-            else if (props.Tablet?.ContentHorizontalAlign === ContentAlignment.Center)
-                return direction === Direction.Vertical || !direction ? 'vertical-center' : 'horizontal-center';
-            else if (props.Tablet?.ContentHorizontalAlign === ContentAlignment.End)
-                return direction === Direction.Vertical || !direction ? 'vertical-end' : 'horizontal-end';
-        }
-        else if (isMobile) {
-            if (props.Mobile?.ContentHorizontalAlign === ContentAlignment.Start)
-                return direction === Direction.Vertical || !direction ? 'vertical-start' : 'horizontal-start';
-            else if (props.Mobile?.ContentHorizontalAlign === ContentAlignment.Center)
-                return direction === Direction.Vertical || !direction ? 'vertical-center' : 'horizontal-center';
-            else if (props.Mobile?.ContentHorizontalAlign === ContentAlignment.End)
-                return direction === Direction.Vertical || !direction ? 'vertical-end' : 'horizontal-end';
-        }
-
-        if (props.ContentHorizontalAlign === ContentAlignment.Start)
-            return direction === Direction.Vertical || !direction ? 'vertical-start' : 'horizontal-start';
-        else if (props.ContentHorizontalAlign === ContentAlignment.Center)
-            return direction === Direction.Vertical || !direction ? 'vertical-center' : 'horizontal-center';
-        else if (props.ContentHorizontalAlign === ContentAlignment.End)
-            return direction === Direction.Vertical || !direction ? 'vertical-end' : 'horizontal-end';
-
-        return '';
-    }
-
     const getDefualtMarginClassName = (): string => {
         if (isMobile) {
             if (props.Mobile?.DefaultMargin === true)
@@ -340,15 +277,15 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
 
     const getWidth = () => {
         if (isMobile) {
-            if (props.Mobile?.WholeHeight === true)
+            if (props.Mobile?.WholeWidth === true)
                 return { width: '100%' };
         }
         else if (isTablet) {
-            if (props.Tablet?.WholeHeight === true)
+            if (props.Tablet?.WholeWidth === true)
                 return { width: '100%' };
         }
 
-        if (props.WholeHeight === true) {
+        if (props.WholeWidth === true) {        
             return { width: '100%' };
         } else if (props.Division && parentDistribution === Distribution.Division && parentDirection === Direction.Horizontal) {
             const devision = getDevision();
@@ -385,6 +322,67 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
         if (props.NoPadding === true)
             return { padding: 0 };
     }
+
+    const getContentVerticalAlign = () => {
+        let direction = props.ContentDirection;
+        direction = isMobile && props.Mobile?.ContentDirection ? props.Mobile?.ContentDirection : direction;
+        direction = isTablet && props.Tablet?.ContentDirection ? props.Tablet?.ContentDirection : direction;
+
+        if (isTablet && props.Tablet?.ContentVerticalAlign) {
+            if (props.Tablet?.ContentVerticalAlign === ContentAlignment.Start)
+                return direction === Direction.Vertical || !direction ? { justifyContent: 'flex-start' } : { alignItems: 'flex-start' };
+            else if (props.Tablet?.ContentVerticalAlign === ContentAlignment.Center)
+                return direction === Direction.Vertical || !direction ? { justifyContent: 'center' } : { alignItems: 'center' };
+            else if (props.Tablet?.ContentVerticalAlign === ContentAlignment.End)
+                return direction === Direction.Vertical || !direction ? { justifyContent: 'flex-end' } : { alignItems: 'flex-end' };
+        } else if (isMobile && props.Mobile?.ContentVerticalAlign) {
+            if (props.Mobile?.ContentVerticalAlign === ContentAlignment.Start)
+                return direction === Direction.Vertical || !direction ? { justifyContent: 'flex-start' } : { alignItems: 'flex-start' };
+            else if (props.Mobile?.ContentVerticalAlign === ContentAlignment.Center)
+                return direction === Direction.Vertical || !direction ? { justifyContent: 'center' } : { alignItems: 'center' };
+            else if (props.Mobile?.ContentVerticalAlign === ContentAlignment.End)
+                return direction === Direction.Vertical || !direction ? { justifyContent: 'flex-end' } : { alignItems: 'flex-end' };
+        }
+
+        if (props.ContentVerticalAlign === ContentAlignment.Start)
+            return direction === Direction.Vertical || !direction ? { justifyContent: 'flex-start' } : { alignItems: 'flex-start' };
+        else if (props.ContentVerticalAlign === ContentAlignment.Center)
+            return direction === Direction.Vertical || !direction ? { justifyContent: 'center' } : { alignItems: 'center' };
+        else if (props.ContentVerticalAlign === ContentAlignment.End)
+            return direction === Direction.Vertical || !direction ? { justifyContent: 'flex-end' } : { alignItems: 'flex-end' };
+    }
+
+    const getContentHorizontalAlign = () => {
+        let direction = props.ContentDirection;
+        direction = isMobile && props.Mobile?.ContentDirection ? props.Mobile?.ContentDirection : direction;
+        direction = isTablet && props.Tablet?.ContentDirection ? props.Tablet?.ContentDirection : direction;
+
+        if (isTablet) {
+            if (props.Tablet?.ContentHorizontalAlign === ContentAlignment.Start)
+                return direction === Direction.Vertical || !direction ? { alignItems: 'flex-start' } : { justifyContent: 'flex-start' };
+            else if (props.Tablet?.ContentHorizontalAlign === ContentAlignment.Center)
+                return direction === Direction.Vertical || !direction ? { alignItems: 'center' } : { justifyContent: 'center' };
+            else if (props.Tablet?.ContentHorizontalAlign === ContentAlignment.End)
+                return direction === Direction.Vertical || !direction ?  { alignItems: 'flex-end' } : { justifyContent: 'flex-end' };
+        }
+        else if (isMobile) {
+            if (props.Mobile?.ContentHorizontalAlign === ContentAlignment.Start)
+                return direction === Direction.Vertical || !direction ? { alignItems: 'flex-start' } : { justifyContent: 'flex-start' };
+            else if (props.Mobile?.ContentHorizontalAlign === ContentAlignment.Center)
+                return direction === Direction.Vertical || !direction ? { alignItems: 'center' } : { justifyContent: 'center' };
+            else if (props.Mobile?.ContentHorizontalAlign === ContentAlignment.End)
+                return direction === Direction.Vertical || !direction ?  { alignItems: 'flex-end' } : { justifyContent: 'flex-end' };
+        }
+
+        if (props.ContentHorizontalAlign === ContentAlignment.Start)
+            return direction === Direction.Vertical || !direction ? { alignItems: 'flex-start' } : { justifyContent: 'flex-start' };
+        else if (props.ContentHorizontalAlign === ContentAlignment.Center)
+            return direction === Direction.Vertical || !direction ? { alignItems: 'center' } : { justifyContent: 'center' };
+        else if (props.ContentHorizontalAlign === ContentAlignment.End)
+            return direction === Direction.Vertical || !direction ?  { alignItems: 'flex-end' } : { justifyContent: 'flex-end' };
+
+        return '';
+    }
     /*-------------------------------------------------------------------------------------------*/
     /*-------------------------------------------------------------------------------------------*/
     const getStyle = (): React.CSSProperties => {
@@ -396,7 +394,9 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
             getFlexGrow(),
             getNoPadding(),
             getNoMargin(),
-            getContentDirection());
+            getContentDirection(),
+            getContentVerticalAlign(),
+            getContentHorizontalAlign());
 
         if (isMobile)
             return Object.assign(retValue, props.Mobile?.Style);
@@ -413,8 +413,6 @@ const MDBox: React.FunctionComponent<iProps> = (props: iProps) => {
             props.featured ? 'featured' : '',
             getBorderedClassName(),
             getRoundedClassName(),
-            getContentVerticalAlignClassName(),
-            getContentHorizontalAlignClassName(),
             getContentDistribution(),
             getDefualtMarginClassName(),
             getDefualtPaddingClassName()])}

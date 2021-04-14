@@ -20,30 +20,6 @@
     &.rounded {
         border-radius: 5px;
     }
-
-    &.vertical-start {
-        align-items: flex-start;
-    }
-
-    &.vertical-center {
-        align-items: center;
-    }
-
-    &.vertical-end {
-        align-items: flex-end;
-    }
-
-    &.horizontal-start {
-        justify-content: flex-start;
-    }
-
-    &.horizontal-center {
-        justify-content: center;
-    }
-
-    &.horizontal-end {
-        justify-content: flex-end;
-    }
     /*---------------------------------------------------------------------------------*/
     &.distribution-equal {
         & > * {
@@ -64,11 +40,13 @@
     }
     /*---------------------------------------------------------------------------------*/
     &.defualt-margin {
-        margin: $general-default-margin;
+        @import '../-General/Styles/mixins.scss';
+        @include default-margin;
     }
 
     &.defualt-padding {
-        padding: $general-default-padding;
+        @import '../-General/Styles/mixins.scss';
+        @include default-padding;
     }
     /*---------------------------------------------------------------------------------*/
 }

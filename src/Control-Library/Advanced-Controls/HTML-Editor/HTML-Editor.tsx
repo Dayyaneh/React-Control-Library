@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 
-import MDButton from '../Button/Button';
-import MDDropDownInput from '../Drop-Down-Input/Drop-Down-Input';
-import MDIcon, { IconType } from '../Icon/Icon';
+import MDButton from '../../Button/Button';
+import MDDropDownInput from '../../Drop-Down-Input/Drop-Down-Input';
+import MDIcon, { IconType } from '../../Icon/Icon';
 
 import './HTML-Editor.scss';
 
@@ -272,27 +272,27 @@ const MDHTMLEditor: React.FunctionComponent<iProps> = () => {
                     },]}></MDDropDownInput>
             </div>
             <div className='menu-container'>
-                <MDButton borderLess onClick={OnCopy}><MDIcon IconType={IconType.Copy}></MDIcon></MDButton>
-                <MDButton borderLess onClick={OnCut}><MDIcon IconType={IconType.Cut}></MDIcon></MDButton>
-                <MDButton borderLess onClick={OnPaste}><MDIcon IconType={IconType.Paste}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnCopy}><MDIcon IconType={IconType.Copy}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnCut}><MDIcon IconType={IconType.Cut}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnPaste}><MDIcon IconType={IconType.Paste}></MDIcon></MDButton>
 
-                <MDButton borderLess onClick={OnUndo}><MDIcon IconType={IconType.Undo}></MDIcon></MDButton>
-                <MDButton borderLess onClick={OnRedo}><MDIcon IconType={IconType.Redo}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnUndo}><MDIcon IconType={IconType.Undo}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnRedo}><MDIcon IconType={IconType.Redo}></MDIcon></MDButton>
 
-                <MDButton borderLess selected={isBold} onClick={OnBold}><MDIcon IconType={IconType.Bold}></MDIcon></MDButton>
-                <MDButton borderLess selected={isUnderline} onClick={OnUnderline}><MDIcon IconType={IconType.Underline}></MDIcon></MDButton>
-                <MDButton borderLess selected={isItalic} onClick={OnItalic}><MDIcon IconType={IconType.Italic}></MDIcon></MDButton>
+                <MDButton BorderLess Selected={isBold} OnClick={OnBold}><MDIcon IconType={IconType.Bold}></MDIcon></MDButton>
+                <MDButton BorderLess Selected={isUnderline} OnClick={OnUnderline}><MDIcon IconType={IconType.Underline}></MDIcon></MDButton>
+                <MDButton BorderLess Selected={isItalic} OnClick={OnItalic}><MDIcon IconType={IconType.Italic}></MDIcon></MDButton>
 
-                <MDButton borderLess onClick={OnAlignLeft}><MDIcon IconType={IconType.AlignLeft}></MDIcon></MDButton>
-                <MDButton borderLess onClick={OnAlignCenter}><MDIcon IconType={IconType.AlignCenter}></MDIcon></MDButton>
-                <MDButton borderLess onClick={OnAlignRight}><MDIcon IconType={IconType.AlignRight}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnAlignLeft}><MDIcon IconType={IconType.AlignLeft}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnAlignCenter}><MDIcon IconType={IconType.AlignCenter}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnAlignRight}><MDIcon IconType={IconType.AlignRight}></MDIcon></MDButton>
 
-                <MDButton borderLess onClick={OnLeftJustify}><MDIcon IconType={IconType.LeftJustify}></MDIcon></MDButton>
-                <MDButton borderLess onClick={OnCenterJustify}><MDIcon IconType={IconType.CenterJustify}></MDIcon></MDButton>
-                <MDButton borderLess onClick={OnRightJustify}><MDIcon IconType={IconType.RightJustify}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnLeftJustify}><MDIcon IconType={IconType.LeftJustify}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnCenterJustify}><MDIcon IconType={IconType.CenterJustify}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnRightJustify}><MDIcon IconType={IconType.RightJustify}></MDIcon></MDButton>
 
-                <MDButton borderLess onClick={OnLeftIndent}><MDIcon IconType={IconType.LeftIndent}></MDIcon></MDButton>
-                <MDButton borderLess onClick={OnRightIndent}><MDIcon IconType={IconType.RightIndent}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnLeftIndent}><MDIcon IconType={IconType.LeftIndent}></MDIcon></MDButton>
+                <MDButton BorderLess OnClick={OnRightIndent}><MDIcon IconType={IconType.RightIndent}></MDIcon></MDButton>
             </div>
         </div>
         <div ref={editorRef} className='editor' role="textbox" contentEditable="true" spellCheck="false"
